@@ -56,7 +56,7 @@ function Beer_Snob() {
 Beer_Snob.prototype = new Patron(10, 14, 80, 90);
 
 function The_Regular() {
-    this.name = "The_Regular"
+    this.name = "The_Regular";
     this.special = null;
     this.attack = null;
 }

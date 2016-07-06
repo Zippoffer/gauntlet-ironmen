@@ -67,7 +67,56 @@ function identifyStaffAttack(event){
 	}
 }
 /////***Attack Functions***\\\\\\
+function patronBaseAttack(event){
+	console.log("starting PP", staffClass.partyPoints);
+	let attackValue = RNG.d20Random();
+	if (patronAttack.opposingStat === "stress"){ //if the opposing stat is stress then use this attack scenario
+		if (attackValue >= staffClass.stress){//compare the hit value to stress
+			if(patronClass.name === patronAttack.favoriteClass){ //if it is the favored class add the bonus damage
+				if(attackValue >= staffClass.stress + 5 ){ //if it is favored AND 5+ more that stress multiply damage by 3
+					staffClass.partyPoints -= 3 * (RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus);
+				} else { //if it is favored and NOT 5+ over the stress level do normal damage 
+					staffClass.partyPoints -= RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus;
+				}
+			} else {
+				if(attackValue >= staffClass.stress + 5 ){
+					staffClass.partyPoints -= 3 * (RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus);
+				} else {
+					staffClass.partyPoints -= RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage);
+				}
+			}
+		}
+	} else {
+		if (RNG.d20Random() >= staffClass.money){
+			if (attackValue >= staffClass.stress){
+				if(patronClass.name === patronAttack.favoriteClass){
+					if(attackValue >= staffClass.stress + 5 ){
+						staffClass.partyPoints -= 3 * (RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus);
+					} else {
+						staffClass.partyPoints -= RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage);
+					}
+				} else {
+					if(attackValue >= staffClass.stress + 5 ){
+						staffClass.partyPoints -= 3 * (RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus);
+					} else {
+						staffClass.partyPoints -= RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage);
+					}
+				}
+			}
+		}
+		totalTurns++;
+		patronTurns++;
+		console.log("ending PP", staffClass.partyPoints );
+	}
+}
 
+function staffBaseAttack(event){
 
+}
 /////***Exports for Browserify***\\\\\
-module.exports = {identifyPatronClass, identifyStaffClass, identifyStaffAttack, identifyPatronAttack};
+module.exports = {identifyPatronClass, 
+	identifyStaffClass, 
+	identifyStaffAttack, 
+	identifyPatronAttack,
+	patronBaseAttack,
+	staffBaseAttack};

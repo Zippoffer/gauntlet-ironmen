@@ -1,5 +1,5 @@
 {
-  "name": "sandwhich_maker_three",
+  "name": "gauntlet",
   "version": "1.0.0",
   "description": "This is a template designed to by cloned for simple projects that require JQuery, and need tasks to be automated with Gulp.",
   "main": "index.js",

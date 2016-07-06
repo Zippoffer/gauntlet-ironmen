@@ -23,13 +23,13 @@ var patronTurn = true;
 
 ///////*****Functions*****\\\\\\\
 //need functions for:
-//comparing to secondary stats
-//adjusting life totals
-//running special attacks
-//running base attacks
-////function for rolling damage.
-//changing button's disabled status on turn change
-
+	//comparing to secondary stats
+	//adjusting life totals
+	//running special attacks
+	//running base attacks
+	////function for rolling damage.
+	//changing button's disabled status on turn change
+/////***Functions to get user input***\\\\\
 function identifyPatronClass(event){
 	for(let i = 0; i < classes.patronClassArray.length; i++){
 		let currentClass = classes.patronClassArray[i];
@@ -66,6 +66,8 @@ function identifyStaffAttack(event){
 		}
 	}
 }
+/////***Attack Functions***\\\\\\
+
 
 /////***Exports for Browserify***\\\\\
 module.exports = {identifyPatronClass, identifyStaffClass, identifyStaffAttack, identifyPatronAttack};

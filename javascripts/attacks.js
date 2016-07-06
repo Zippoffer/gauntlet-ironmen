@@ -13,12 +13,10 @@ function PitcherOfBeer(){
 	this.favoriteClass = "Frat_Boy";
 	this.favoriteClassBonus = 1;
 	this.opposingStat = "stress";
-	this.phrase = " chugs a pitcher of PBR, and belches in the face of "
+	this.phrase = " chugs a pitcher of PBR, and belches in the face of ";
 }
 PitcherOfBeer.prototype = new Attack(3, 3);
 
-<<<<<<< HEAD
-=======
 function RoundOfShots(){
   this.name = "Round_of_Shots";
   this.patron = true;
@@ -61,7 +59,6 @@ var flask = new Flask();
 var darts = new Darts();
 var karaokeMachine = new KaraokeMachine();
 
->>>>>>> master
 ///////*****Staff Attacks*****\\\\\\\
 function LemonWedges(){
 	this.name = "Lemon_Wedges";

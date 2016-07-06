@@ -13,6 +13,7 @@ function PitcherOfBeer(){
 	this.favoriteClass = "Frat_Boy";
 	this.favoriteClassBonus = 1;
 	this.opposingStat = "stress";
+	this.phrase = " chugs a pitcher of PBR, and belches in the face of "
 }
 PitcherOfBeer.prototype = new Attack(3, 3);
 

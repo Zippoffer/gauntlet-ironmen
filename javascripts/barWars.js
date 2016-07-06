@@ -67,7 +67,96 @@ function identifyStaffAttack(event){
 	}
 }
 /////***Attack Functions***\\\\\\
+function patronBaseAttack(event){
+	console.log("starting staff PP", staffClass.partyPoints);
+	let attackValue = RNG.d20Random();
+	if (patronAttack.opposingStat === "stress"){ //if the opposing stat is stress then use this attack scenario
+		if (attackValue >= staffClass.stress){//compare the hit value to stress
+			if(patronClass.name === patronAttack.favoriteClass){ //if it is the favored class add the bonus damage
+				if(attackValue >= staffClass.stress + 5 ){ //if it is favored AND 5+ more that stress multiply damage by 3
+					staffClass.partyPoints -= 3 * (RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus);
+				} else { //if it is favored and NOT 5+ over the stress level do normal damage 
+					staffClass.partyPoints -= RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus;
+				}
+			} else {
+				if(attackValue >= staffClass.stress + 5 ){
+					staffClass.partyPoints -= 3 * (RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus);
+				} else {
+					staffClass.partyPoints -= RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage);
+				}
+			}
+		}
+	} else {
+		if (RNG.d20Random() >= staffClass.money){
+			if (attackValue >= staffClass.money){
+				if(patronClass.name === patronAttack.favoriteClass){
+					if(attackValue >= staffClass.money + 5 ){
+						staffClass.partyPoints -= 3 * (RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus);
+					} else {
+						staffClass.partyPoints -= RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage);
+					}
+				} else {
+					if(attackValue >= staffClass.money + 5 ){
+						staffClass.partyPoints -= 3 * (RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage) + patronAttack.favoriteClassBonus);
+					} else {
+						staffClass.partyPoints -= RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage);
+					}
+				}
+			}
+		}
+	}
+		totalTurns++;
+		patronTurns++;
+		console.log("ending PP", staffClass.partyPoints );
+}
 
+function staffBaseAttack(event){
+	console.log("starting patron PP", patronClass.partyPoints);
+	let attackValue = RNG.d20Random();
+	if (staffAttack.opposingStat === "pleasure"){ //if the opposing stat is pleasure then use this attack scenario
+		if (attackValue >= patronClass.pleasure){//compare the hit value to pleasure
+			if(staffClass.name === staffAttack.favoriteClass){ //if it is the favored class add the bonus damage
+				if(attackValue >= patronClass.pleasure + 5 ){ //if it is favored AND 5+ more that pleasure multiply damage by 3
+					patronClass.partyPoints -= 3 * (RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus);
+				} else { //if it is favored and NOT 5+ over the pleasure level do normal damage 
+					patronClass.partyPoints -= RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus;
+				}
+			} else {
+				if(attackValue >= patronClass.pleasure + 5 ){
+					patronClass.partyPoints -= 3 * (RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus);
+				} else {
+					patronClass.partyPoints -= RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage);
+				}
+			}
+		}
+	} else {
+		if (RNG.d20Random() >= patronClass.sobriety){
+			if (attackValue >= patronClass.sobriety){
+				if(staffClass.name === staffAttack.favoriteClass){
+					if(attackValue >= patronClass.sobriety + 5 ){
+						patronClass.partyPoints -= 3 * (RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus);
+					} else {
+						patronClass.partyPoints -= RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage);
+					}
+				} else {
+					if(attackValue >= patronClass.sobriety + 5 ){
+						patronClass.partyPoints -= 3 * (RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus);
+					} else {
+						patronClass.partyPoints -= RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage);
+					}
+				}
+			}
+		}
+	}
+		totalTurns++;
+		staffTurns++;
+		console.log("ending PP", patronClass.partyPoints );
+}
 
 /////***Exports for Browserify***\\\\\
-module.exports = {identifyPatronClass, identifyStaffClass, identifyStaffAttack, identifyPatronAttack};
+module.exports = {identifyPatronClass, 
+	identifyStaffClass, 
+	identifyStaffAttack, 
+	identifyPatronAttack,
+	patronBaseAttack,
+	staffBaseAttack};

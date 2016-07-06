@@ -81,6 +81,5 @@ manager = new Manager();
 /////***Exports for Browserify***\\\\\
 //These arrays contain all the classes for staff and patrons.
 var patronClassArray = []; //push each patron class into this array
-var staffClassArray = []; //push each staff class into this array
-staffClassArray.push(bartender, bouncer, waitress, cook, manager);
-module.exports = {patronClassArray, staffClassArray}
+var staffClassArray = [bartender, bouncer, waitress, cook, manager]; //push each staff class into this array
+module.exports = {patronClassArray, staffClassArray};

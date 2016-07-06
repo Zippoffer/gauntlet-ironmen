@@ -26,7 +26,7 @@ var handleError = function(task) {
 };
 
 var customOpts = {
-  entries: ['./javascripts/quiz.js'],
+  entries: ['./javascripts/DOMgenerator.js'],
   debug: true //creates readable 'source maps' of code
 };
 var opts = assign({}, watchify.args, customOpts);

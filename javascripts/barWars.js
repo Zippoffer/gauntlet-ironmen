@@ -19,6 +19,8 @@ var totalTurns = 0; //total turn taken in the game
 var patronTurns = 0; //total turn taken by patron
 var staffTurns = 0; //total turns taken by staff
 
+var patronTurn = true;
+
 ///////*****Functions*****\\\\\\\
 //need functions for:
 //comparing to secondary stats

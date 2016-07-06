@@ -13,6 +13,7 @@ $(document).ready(function(){
 	$("#staffClasses").change(barWars.identifyStaffClass);
 	$("#patronAttacks").change(barWars.identifyPatronAttack);
 	$("#staffAttacks").change(barWars.identifyStaffAttack);
+	
 	$("#patronFight").click(barWars.patronBaseAttack);
 	$("#staffFight").click(barWars.staffBaseAttack);
 	/////***DropDown Populating Functions***\\\\\

@@ -10,13 +10,13 @@ var classes = require("./classes.js");
 const maxStat = 17; //no stat may go above this number
 const minStat = 5;	//no stat may go below this number
 
-var partonClass = null; //selected patron class
+var patronClass = null; //selected patron class
 var staffClass = null; //selected staff class
 var patronAttack = null; //selected patron attack
 var staffAttack = null; //selected staff attack
 
 var totalTurns = 0; //total turn taken in the game
-var partonTurns = 0; //total turn taken by patron
+var patronTurns = 0; //total turn taken by patron
 var staffTurns = 0; //total turns taken by staff
 
 ///////*****Functions*****\\\\\\\

@@ -62,11 +62,11 @@ function The_Regular() {
 }
 The_Regular.prototype = new Patron(11, 11, 70, 100);
 
-fratBoy = new FratBoy();
-bachelorette = new Bachelorette();
-underage = new Underage();
-beer_Snob = new Beer_Snob();
-the_Regular = new The_Regular();
+var fratBoy = new FratBoy();
+var bachelorette = new Bachelorette();
+var underage = new Underage();
+var beer_Snob = new Beer_Snob();
+var the_Regular = new The_Regular();
 /////***Staff classes***\\\\\
 //Each with a special ability, min and max life, and class name. 
 //Each has a "has-a" relationship for an attack object (i.e. this.attack = null)
@@ -106,11 +106,11 @@ function Manager() {
 }
 Manager.prototype = new Staff(10, 12, 75, 90);
 
-bartender = new Bartender();
-bouncer = new Bouncer();
-waitress = new Waitress();
-cook = new Cook();
-manager = new Manager();
+var bartender = new Bartender();
+var bouncer = new Bouncer();
+var waitress = new Waitress();
+var cook = new Cook();
+var manager = new Manager();
 /////***Exports for Browserify***\\\\\
 //These arrays contain all the classes for staff and patrons.
 var patronClassArray = [fratBoy, bachelorette, underage, beer_Snob, the_Regular]; //push each patron class into this array

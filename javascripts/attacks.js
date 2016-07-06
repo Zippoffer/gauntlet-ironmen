@@ -1,7 +1,11 @@
 "use strict";
 
 var RNG = require("./randomNumbers.js");
+///////*****Patron Attacks*****\\\\\\\
 
-var patronAttacksArray = [];
-var staffAttacksArray = [];
+///////*****Staff Attacks*****\\\\\\\
+
+/////***Exports for Browserify***\\\\\
+var patronAttacksArray = []; //push patron attacks
+var staffAttacksArray = []; //push staff attacks
 module.exports = {patronAttacksArray, staffAttacksArray};

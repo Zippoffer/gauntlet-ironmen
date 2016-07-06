@@ -1,6 +1,7 @@
 "use strict";
 
 var RNG = require("./randomNumbers.js");
+var attacks = require("./attacks.js");
 var classes = require("./classes.js");
 
 
@@ -25,7 +26,9 @@ var staffTurns = 0; //total turns taken by staff
 //taking in class and attack inputs
 //running special attacks
 //running base attacks
+////function for rolling damage.
+//changing button's disabled status on turn change
 
 
-
+/////***Exports for Browserify***\\\\\
 module.exports = {};

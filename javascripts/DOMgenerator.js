@@ -1,5 +1,6 @@
 "use strict";
 
+
 	var barWars = require("./barWars.js");
 	var classes = require("./classes.js");
 	var attacks = require("./attacks.js");
@@ -32,11 +33,31 @@ $(document).ready(function(){
 			$("#patronAttacks").append(`<option value="${currentAttackName}">${currentAttackDisplayName}</option>`);
 		}
 	}
-	////////Add a populateStaffClasses() ::: Dont forget to call functions
-	////////Add a populateStaffAttacks() ::: Dont Forget to call functions
 
 
-	/////***Call Functions to populate DOM***\\\\\
-	populatePatronClasses();
-	populatePatronAttacks();
-});
+	function populateStaffClasses() {
+    for (let i = 0; i < classes.staffClassArray.length; i++) {
+        let currentClass = classes.staffClassArray[i];
+        let currentClassName = currentClass.name;
+        let currentClassDisplayName = currentClassName.replace(/_/g, " ");
+
+        $("#staffClasses").append(`<option value="${currentClassName}">${currentClassDisplayName}</option>`);
+	    }
+	}
+
+	function populateStaffAttacks() {
+    for (var i = 0; i < attacks.staffAttacksArray.length; i++) {
+        let currentAttack = attacks.staffAttacksArray[i];
+        let currentAttackName = currentAttack.name;
+        let currentAttackDisplayName = currentAttackName.replace(/_/g, " ");
+
+        $("#staffAttacks").append(`<option value="${currentAttackName}">${currentAttackDisplayName}</option>`);
+	    }
+	}
+
+
+populatePatronClasses();
+populatePatronAttacks();
+populateStaffClasses();
+populateStaffAttacks();
+

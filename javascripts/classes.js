@@ -45,8 +45,42 @@ function Bartender(){
 }
 Bartender.prototype = new Staff(10, 13, 80, 85);
 
+function Bouncer(){
+	this.name = "Bouncer";
+	this.special = null;
+	this.attack = null;
+}
+Bouncer.prototype = new Staff(10, 9, 90, 100);
+
+function Waitress(){
+	this.name = "Waitress";
+	this.special = null;
+	this.attack = null;
+}
+Waitress.prototype = new Staff(12, 14, 75, 85);
+
+function Cook(){
+	this.name = "Cook";
+	this.special = null;
+	this.attack = null;
+}
+Cook.prototype = new Staff(10, 11, 80, 100);
+
+function Manager(){
+	this.name = "Manager";
+	this.special = null;
+	this.attack = null;
+}
+Manager.prototype = new Staff(10, 12, 75, 90);
+
+bartender = new Bartender();
+bouncer = new Bouncer();
+waitress = new Waitress();
+cook = new Cook();
+manager = new Manager();
 /////***Exports for Browserify***\\\\\
 //These arrays contain all the classes for staff and patrons.
 var patronClassArray = []; //push each patron class into this array
 var staffClassArray = []; //push each staff class into this array
+staffClassArray.push(bartender, bouncer, waitress, cook, manager);
 module.exports = {patronClassArray, staffClassArray}

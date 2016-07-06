@@ -4,12 +4,85 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bar Wars</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<!--NOTE: All Select fields and button should be disabled on load
-    The exception in patron class select. When an option is chosen
-    then the next option is enabled. -->
+
+<div class="outer">
+	<div class="middle">
+		<div class="inner">
+		<label for="">Bar Wars</label>
+
+			<div class="Patrons">
+
+				<select id="patronClasses" name="patrons" multiple>
+					<option value="none">Pick a Patron</option>
+					<!-- <option value="">Frat Boy</option>
+					<option value="">bachelorette</option>
+					<option value="">The Regular</option>
+					<option value="">underaged kid</option>
+					<option value="">Beer Snob</option> -->
+				</select>
+				
+			</div>
+
+			<div class="Staff">
+
+				<select id="staffClasses" name="staff" multiple>
+					<option value="none">Pick a Staff</option>
+					<!-- <option value="">Bouncer</option>
+					<option value="">Waitress</option>
+					<option value="">Cook</option>
+					<option value="">The Bartender</option>
+					<option value="">Manager</option> -->
+				</select>
+				
+			</div>
+
+			<div class="patronWeapons">
+
+				<select id="patronAttacks" name="patrons" multiple>
+					<option value="none">Pick an Attack</option>
+					<!-- <option value="">pitcherOfBeer</option>
+					<option value="">roundOfShots</option>
+					<option value="">flask</option>
+					<option value="">darts</option>
+					<option value="">karaokeMachine</option> -->
+				</select>
+			</div>
+				<button class="patronFight">FIGHT!!!</button>
+				<button class="patronSpecial">Zap!!</button>
+
+			<div class="staffWeapons">
+
+				<select id="staffAttacks" name="staff" multiple>
+					<option value="none">Pick an Attack</option>
+					<!-- <option value="">lemonWedges</option>
+					<option value="">poolCue</option>
+					<option value="">theTab</option>
+					<option value="">greasySpatula</option>
+					<option value="">music</option> -->
+				</select>
+			</div>
+			<button class="staffFight">FIGHT!!!</button>
+			<button class="staffSpecial">Pow!!</button>
+
+			<div id="output">
+				
+			</div>
+<!-- <li>
+        <a href="">Mammals</a>
+        <ul>
+            <li><a href="">Monotremes</a></li>
+            <li><a href="">Marsupials</a></li>
+            <li><a href="">Placentals</a></li>
+        </ul>
+    </li> -->
+			</div>
+		</div>
+	</div>
+</div>
+
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="dist/bundle.js"></script>
 </body>

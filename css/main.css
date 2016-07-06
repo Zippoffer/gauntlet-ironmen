@@ -1,0 +1,159 @@
+body {
+	/*background-color: black;*/
+}
+
+.outer {
+	background-image: url(http://covermyfb.com/media/covers/07zUlMvNDOievNoW.jpg);
+	/*background-image: url(http://www.clipartbest.com/cliparts/9Tz/EBd/9TzEBdRac.jpeg);*/
+	background-size: 100% 300px;
+	background-position: no-repeat;
+	image-position: top;
+	margin: 1em 0 0 12em;
+	width: 600px;
+	height: 600px;
+	border: 1px solid black;
+}
+
+.middle {
+	background-image: url(http://www.tomtaylormade.com/wp-content/uploads/2011/09/vertigosmall.jpg);
+	/*background-image: url(http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2015/08/Header1-2400x1200-380310598202.jpg);*/
+	/*background-image: url(http://static.comicvine.com/uploads/original/11114/111141062/4023355-dc+vs+marvel+bar.jpg);*/
+	background-size: 100% 200px;
+	background-position: no-repeat bottom;
+	background-color: lightgreen;
+	width: 100%;
+	height: 500px;
+	margin-top: 25%;
+	border: 1px solid black;
+}
+
+.inner {
+	/*background-image: linear-gradient(black, indianred);*/
+	background-image: linear-gradient(black, wheat);
+	/*background-image: url(http://pre07.deviantart.net/a40a/th/pre/i/2012/182/f/1/texture__old_burned_wood_by_nuxlystardust_stock-d55ko8t.jpg);*/
+	background-size: 100%;
+	background-position: no-repeat;
+	/*background-color: wheat;*/
+	width: 100%;
+	height: 400px;
+	padding-bottom: 14px;
+	margin-top: -5px;
+	/*margin: 12% 12% 12% 12%;*/
+	border: 1px solid black;
+}
+
+.Patrons {
+	width: auto;
+	height: auto;
+	float: left;
+	margin: 1%;
+	border: 1px solid black;
+	/*backface-visibility: none;*/
+}
+
+.Staff {
+	width: auto;
+	height: auto;
+	float: right;
+	margin: 1%;
+	border: 1px solid black;
+}
+.patronWeapons {
+	width: auto;
+	height: auto;
+	float: left;
+	top: 105px;
+	/*left: -89px;*/
+	right: 79px;
+	/*margin-right: 100px;*/
+	border: 1px solid black;
+	position: relative;
+}
+.staffWeapons {
+	width: auto;
+	height: auto;
+	float: right;
+	position: relative;
+	top: 95px;
+	/*right:-89px;*/
+	left: 73px;
+	/*margin-left: 100px;*/
+	
+	border: 1px solid black;
+}
+label {
+	padding-left: 2em;
+	text-align: center;
+	font-size: 2em;
+	color: crimson;
+}
+#output {
+	background-color: wheat;
+	border: 1px solid black;
+	height:340px;
+	width: 350px;
+	left: 130px;
+	top: -60px;
+	position: relative;
+	/*margin: 22px 2px 222px 222px;*/
+}
+.staffFight {
+	position: relative;
+	top: 170px;
+	left: 350px;
+	border-radius: 200px;
+	height: 60px;
+	width: 60px;
+	font-weight: 900;
+	background-color: red;
+}
+.patronFight {
+	position: relative;
+	top: 200px;
+	right: 350px;
+	border-radius: 200px;
+	height: 60px;
+	width: 60px;
+	font-weight: 900;
+	background-color: red;
+}
+.patronSpecial {
+	position: relative;
+	top: 300px;
+	right: 390px;
+	border-radius: 200px;
+	height: 60px;
+	width: 60px;
+	font-weight: 900;
+	background-color: lightblue;
+}
+.staffSpecial {
+	position: relative;
+	top: 270px;
+	left: 300px;
+	border-radius: 200px;
+	height: 60px;
+	width: 60px;
+	font-weight: 900;
+	background-color: lightblue;
+}
+/*
+option {
+    display: inline;
+    position: relative;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+ul {
+    position: absolute;
+    display: none;
+    background-color: white;
+}
+a:hover + ul{
+    display: inline-block;
+}
+a {
+	display: inline-block;
+}*/

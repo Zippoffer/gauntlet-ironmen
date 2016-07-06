@@ -61,3 +61,4 @@ populatePatronAttacks();
 populateStaffClasses();
 populateStaffAttacks();
 
+});

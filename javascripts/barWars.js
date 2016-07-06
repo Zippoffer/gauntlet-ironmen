@@ -25,7 +25,6 @@ var patronTurn = true;
 //need functions for:
 //comparing to secondary stats
 //adjusting life totals
-//taking in class and attack inputs
 //running special attacks
 //running base attacks
 ////function for rolling damage.
@@ -36,7 +35,7 @@ function identifyPatronClass(event){
 		let currentClass = classes.patronClassArray[i];
 		if($("#patronClasses").val()[0] === currentClass.name){
 			patronClass = currentClass;
-			// console.log("Patron Class", patronClass);
+			console.log("Patron Class", patronClass);
 		}
 	}
 }
@@ -45,28 +44,28 @@ function identifyStaffClass(event){
 		let currentClass = classes.staffClassArray[i];
 		if($("#staffClasses").val()[0] === currentClass.name){
 			staffClass = currentClass;
-			// console.log("Patron Class", patronClass);
+			console.log("Staff Class", staffClass);
 		}
 	}
 }
 function identifyPatronAttack(event){
-	for(let i = 0; i < attacks.patronAttackArray.length; i++){
-		let currentAttack = attacks.patronAttackArray[i];
+	for(let i = 0; i < attacks.patronAttacksArray.length; i++){
+		let currentAttack = attacks.patronAttacksArray[i];
 		if($("#patronAttacks").val()[0] === currentAttack.name){
 			patronAttack = currentAttack;
-			// console.log("Patron Class", patronClass);
+			console.log("Patron Attack", patronAttack);
 		}
 	}
 }
 function identifyStaffAttack(event){
-	for(let i = 0; i < attacks.staffAttackArray.length; i++){
-		let currentAttack = attacks.staffAttackArray[i];
+	for(let i = 0; i < attacks.staffAttacksArray.length; i++){
+		let currentAttack = attacks.staffAttacksArray[i];
 		if($("#staffAttacks").val()[0] === currentAttack.name){
 			staffAttack = currentAttack;
-			// console.log("Patron Class", patronClass);
+			console.log("Staff Attack", staffAttack);
 		}
 	}
 }
 
 /////***Exports for Browserify***\\\\\
-module.exports = {identifyPatronClass};
+module.exports = {identifyPatronClass, identifyStaffClass, identifyStaffAttack, identifyPatronAttack};

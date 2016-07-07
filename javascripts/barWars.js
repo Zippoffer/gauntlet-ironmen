@@ -39,7 +39,7 @@ function identifyPatronClass(event) {
   patronName = patronClass.name.replace(/_/g, " ");
 
   $("#patronClasses").prop("disabled", true);
-\  $("#patronPointsLabel").text(`${patronName} Party Points: `);
+	$("#patronPointsLabel").text(`${patronName} Party Points: `);
   $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
   $("#staffClasses").prop("disabled", false);
 }

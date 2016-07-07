@@ -76,13 +76,15 @@ var darts = new Darts();
 var karaokeMachine = new KaraokeMachine();
 
 ///////*****Staff Attacks*****\\\\\\\
-function LemonWedges() {
-    this.name = "Lemon_Wedges";
-    this.patron = false;
-    this.favoriteClass = "Bartender";
-    this.favoriteClassBonus = 2;
-    this.opposingStat = "sobriety";
-    this.phrase = ` "accidentally" squeezes lemon wedges into the eyes of `;
+function LemonWedges(){
+	this.name = "Lemon_Wedges";
+	this.patron = false;
+	this.favoriteClass = "Bartender";
+	this.favoriteClassBonus = 2;
+	this.opposingStat = "sobriety";
+	this.attackPhrase = `staffName "accidentally" squeezes lemon juice into patronName's eyes.`;
+	this.successPhrase = `Temporarily blinded, patronName makes a pass at the tall woman in the corner with the Adam's apple.`;
+	this.failPhrase = `staffName is a huge Corey Hart fan and is wearing sunglasses at night. Lemon juice deflected!`;
 }
 LemonWedges.prototype = new Attack(3, 3);
 

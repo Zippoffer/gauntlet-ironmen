@@ -13,12 +13,12 @@ Only one will be partying in the morning!
 
 ###Instructions
 To claim victory for yourself following these steps:  
-1. Fork this repository to your GitHub then use `git clone` to make a copy locally.
-1. Run the following in your local directory:
+1. Fork this repository to your GitHub then use `git clone` to make a copy locally.  
+1. Run the following in your local directory:  
 ```
 npm init #starts NPM
 npm install #Installs all packages from JSON file provided
 npm update #updates any out-of-date packages
-```
-1. Then compile the app using Browserify with the `gulp` command in the terminal.
-1. Finally, Open the app in your browser.
+```  
+1. Then compile the app using Browserify with the `gulp` command in the terminal.  
+1. Finally, Open the app in your browser.  

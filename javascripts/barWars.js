@@ -21,6 +21,9 @@ var staffTurns = 0; //total turns taken by staff
 
 var patronTurn = true;
 
+var patronName = null; //for using in phrases
+var staffName = null;
+
 ///////*****Functions*****\\\\\\\
 //need functions for:
 //running special attacks
@@ -33,6 +36,8 @@ function identifyPatronClass(event) {
             console.log("Patron Class", patronClass);
         }
     }
+    patronName = patronClass.name.replace(/_/g, " ");
+    console.log("patronName", patronName);
     $("#patronClasses").prop("disabled", true);
 }
 
@@ -44,6 +49,8 @@ function identifyStaffClass(event) {
             console.log("Staff Class", staffClass);
         }
     }
+    staffName = staffClass.name.replace(/_/g, " ");
+    console.log("staffName", staffName);
     $("#staffClasses").prop("disabled", true);
 }
 

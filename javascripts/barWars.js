@@ -221,12 +221,12 @@ function displayAttackSuccessMessage(attackingClass, defendingClass, damage) {
 		let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/patronName/g, patronName);
 		attackerSuccessPhrase = attackerSuccessPhrase.replace(/staffName/g, staffName);
 		$(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
-		$(`#turn__${totalTurns}__results`).append(`<p> ${patronName} knocks off ${damage} Party Points from ${defendingClass.name}!</p>`);
+		$(`#turn__${totalTurns}__results`).append(`<p> ${patronName} knocks off ${damage} Party Points from ${staffName}!</p>`);
 	} else {
 		let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/staffName/g, staffName);
 		attackerSuccessPhrase = attackerSuccessPhrase.replace(/patronName/g, patronName);
 		$(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
-		$(`#turn__${totalTurns}__results`).append(`<p> ${staffName} knocks off ${damage} Party Points from ${defendingClass.name}!</p>`);
+		$(`#turn__${totalTurns}__results`).append(`<p> ${staffName} knocks off ${damage} Party Points from ${patronName}!</p>`);
 	}
 }
 
@@ -238,9 +238,9 @@ function displayAttackFailureMessage(attackingClass, defendingClass) {
 		attackerFailPhrase = attackerFailPhrase.replace(/staffName/g, staffName);
 		$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);
 	} else {
-		let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/staffName/g, staffName);
-		attackerSuccessPhrase = attackerSuccessPhrase.replace(/patronName/g, patronName);
-		$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerSuccessPhrase}</p>`);	
+		let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/staffName/g, staffName);
+		attackerFailPhrase = attackerFailPhrase.replace(/patronName/g, patronName);
+		$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);	
 	}
 }
 

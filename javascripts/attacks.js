@@ -57,7 +57,7 @@ function Darts() {
 Darts.prototype = new Attack(2, 4);
 
 function KaraokeMachine() {
-    this.name = "KaraokeMachine";
+    this.name = "Karaoke_Machine";
     this.patron = true;
     this.favoriteClass = "The_Regular";
     this.favoriteClassBonus = 2;

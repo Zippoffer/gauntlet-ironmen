@@ -70,6 +70,7 @@ function identifyStaffAttack(event){
 }
 /////***Attack Functions***\\\\\\
 function patronBaseAttack(event){
+	$("#patronFight").prop("disabled", true);
 	console.log("starting staff PP", staffClass.partyPoints);
 	let attackValue = RNG.d20Random();
 	if (patronAttack.opposingStat === "stress"){ //if the opposing stat is stress then use this attack scenario
@@ -109,11 +110,13 @@ function patronBaseAttack(event){
 	}
 		totalTurns++;
 		patronTurns++;
+		$("#staffFight").prop("disabled", false);
 		console.log("ending PP", staffClass.partyPoints );
 }
 
 function staffBaseAttack(event){
 	console.log("starting patron PP", patronClass.partyPoints);
+	$("#staffFight").prop("disabled", true);
 	let attackValue = RNG.d20Random();
 	if (staffAttack.opposingStat === "pleasure"){ //if the opposing stat is pleasure then use this attack scenario
 		if (attackValue >= patronClass.pleasure){//compare the hit value to pleasure
@@ -152,6 +155,7 @@ function staffBaseAttack(event){
 	}
 		totalTurns++;
 		staffTurns++;
+		$("#patronFight").prop("disabled", false);
 		console.log("ending PP", patronClass.partyPoints );
 }
 

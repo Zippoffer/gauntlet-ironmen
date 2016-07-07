@@ -29,41 +29,39 @@ var staffName = null;
 //running special attacks
 /////***Functions to get user input***\\\\\
 function identifyPatronClass(event) {
-    for (let i = 0; i < classes.patronClassArray.length; i++) {
-        let currentClass = classes.patronClassArray[i];
-        if ($("#patronClasses").val()[0] === currentClass.name) {
-            patronClass = currentClass;
-            console.log("Patron Class", patronClass);
-        }
+  for (let i = 0; i < classes.patronClassArray.length; i++) {
+    let currentClass = classes.patronClassArray[i];
+    if ($("#patronClasses").val()[0] === currentClass.name) {
+        patronClass = currentClass;
+        console.log("Patron Class", patronClass);
     }
-    patronName = patronClass.name.replace(/_/g, " ");
-    console.log("patronName", patronName);
-    $("#patronClasses").prop("disabled", true);
+  }
+  patronName = patronClass.name.replace(/_/g, " ");
+  // console.log("patronName", patronName);
+  $("#patronClasses").prop("disabled", true);
 }
 
 function identifyStaffClass(event) {
-    for (let i = 0; i < classes.staffClassArray.length; i++) {
-        let currentClass = classes.staffClassArray[i];
-        if ($("#staffClasses").val()[0] === currentClass.name) {
-            staffClass = currentClass;
-            console.log("Staff Class", staffClass);
-        }
+  for (let i = 0; i < classes.staffClassArray.length; i++) {
+    let currentClass = classes.staffClassArray[i];
+    if ($("#staffClasses").val()[0] === currentClass.name) {
+        staffClass = currentClass;
+        console.log("Staff Class", staffClass);
     }
-    staffName = staffClass.name.replace(/_/g, " ");
-    console.log("staffName", staffName);
-    $("#staffClasses").prop("disabled", true);
+  }
+  staffName = staffClass.name.replace(/_/g, " ");
+  // console.log("staffName", staffName);
+  $("#staffClasses").prop("disabled", true);
 }
 
 function identifyPatronAttack(event) {
-    for (let i = 0; i < attacks.patronAttacksArray.length; i++) {
-        let currentAttack = attacks.patronAttacksArray[i];
-        if ($("#patronAttacks").val()[0] === currentAttack.name) {
-            patronAttack = currentAttack;
-            patronClass.attack = currentAttack;
-            console.log("patronClass", patronClass);
-            console.log("Patron Attack", patronAttack);
-        }
+  for (let i = 0; i < attacks.patronAttacksArray.length; i++) {
+    let currentAttack = attacks.patronAttacksArray[i];
+    if ($("#patronAttacks").val()[0] === currentAttack.name) {
+        patronAttack = currentAttack;
+        patronClass.attack = currentAttack;
     }
+  }
 }
 
 function identifyStaffAttack(event) {
@@ -72,7 +70,7 @@ function identifyStaffAttack(event) {
         if ($("#staffAttacks").val()[0] === currentAttack.name) {
             staffAttack = currentAttack;
             staffClass.attack = currentAttack;
-            console.log("Staff Attack", staffAttack);
+            // console.log("Staff Attack", staffAttack);
         }
     }
 }
@@ -82,6 +80,7 @@ function patronBaseAttack(event) {
     $("#patronFight").prop("disabled", true);
     console.log("starting staff PP", staffClass.partyPoints);
     let attackValue = RNG.d20Random();
+    console.log("Patron attack roll", attackValue );
     let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
     let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage); 
     let totalDamage = 0;
@@ -125,7 +124,6 @@ function patronBaseAttack(event) {
             }
         }
     }
-    console.log("attack:", patronClass.attack.attackPhrase.replace(/patronName/g, patronName));
     totalTurns++;
     patronTurns++;
     staffClass.partyPoints -= totalDamage;
@@ -137,6 +135,7 @@ function staffBaseAttack(event) {
     console.log("starting patron PP", patronClass.partyPoints);
     $("#staffFight").prop("disabled", true);
     let attackValue = RNG.d20Random();
+    console.log("Staff attack roll", attackValue );
     let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
     let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage); 
     let totalDamage = 0;

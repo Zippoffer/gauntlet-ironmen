@@ -37,18 +37,10 @@ function identifyPatronClass(event) {
         }
     }
     patronName = patronClass.name.replace(/_/g, " ");
-
-<<<<<<< HEAD
     $("#patronClasses").prop("disabled", true);
     $("#patronPointsLabel").text(`${patronName} Party Points: `);
     $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
     $("#staffClasses").prop("disabled", false);
-=======
-  $("#patronClasses").prop("disabled", true);
-	$("#patronPointsLabel").text(`${patronName} Party Points: `);
-  $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
-  $("#staffClasses").prop("disabled", false);
->>>>>>> 2c5fac945a773f5f92f00b9883f9f0b5eb056e0e
 }
 
 function identifyStaffClass(event) {

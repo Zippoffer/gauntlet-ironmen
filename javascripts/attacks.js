@@ -94,7 +94,6 @@ function PoolCue() {
     this.favoriteClass = "Bouncer";
     this.favoriteClassBonus = 1;
     this.opposingStat = "sobriety";
-    this.phrase = "";
     this.attackPhrase = `staffName threatens patronName with a pool cue.`;
     this.successPhrase = `A giant wet spot appears on the front of patronName's pants.`;
     this.failPhrase = `patronName blows pool cue chalk dust into staffName's eyes.`;
@@ -107,7 +106,6 @@ function TheTab() {
     this.favoriteClass = "Waitress";
     this.favoriteClassBonus = 3;
     this.opposingStat = "pleasure";
-    this.phrase = "";
     this.attackPhrase = `staffName pulls out the tab and brandishes it in front of patronName`;
     this.successPhrase = `patronName's credit card is declined, and has no cash!`;
     this.failPhrase = `patronName whips out their Black Card, and pays the bill happily!`;
@@ -120,7 +118,6 @@ function GreasySpatula() {
     this.favoriteClass = "Cook";
     this.favoriteClassBonus = 2;
     this.opposingStat = "pleasure";
-    this.phrase = "";
     this.attackPhrase = `staffName flicks a greasey spatula in patronName's direction.`;
     this.successPhrase = `patronName is hit on the face with week-old burger grease!`;
     this.failPhrase = `patronName tastes the grease and asks for an order of whatever produced it.`;
@@ -133,7 +130,6 @@ function Music() {
     this.favoriteClass = "Manager";
     this.favoriteClassBonus = 2;
     this.opposingStat = "pleasure";
-    this.phrase = "";
     this.attackPhrase = `staffName changes the house music to Slovakian Bagpipe Smooth Jazz for Pig Farmers.`;
     this.successPhrase = `patronName's ears start to bleed...heavily...like Niagara Falls.`;
     this.failPhrase = `But patronName was born in Slovakia to pig-farming parents and yells "That's my jam!"`;

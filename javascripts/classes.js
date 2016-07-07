@@ -41,12 +41,12 @@ function Bachelorette() {
 }
 Bachelorette.prototype = new Patron(13, 10, 80, 85);
 
-function Underage() {
-    this.name = "Underage";
+function Underage_Kid() {
+    this.name = "Underage_Kid";
     this.special = null;
     this.attack = null;
 }
-Underage.prototype = new Patron(12, 14, 75, 85);
+Underage_Kid.prototype = new Patron(12, 14, 75, 85);
 
 function Beer_Snob() {
     this.name = "Beer_Snob";
@@ -64,7 +64,7 @@ The_Regular.prototype = new Patron(11, 11, 70, 100);
 
 var fratBoy = new FratBoy();
 var bachelorette = new Bachelorette();
-var underage = new Underage();
+var underage_Kid = new Underage_Kid();
 var beer_Snob = new Beer_Snob();
 var the_Regular = new The_Regular();
 /////***Staff classes***\\\\\
@@ -113,7 +113,7 @@ var cook = new Cook();
 var manager = new Manager();
 /////***Exports for Browserify***\\\\\
 //These arrays contain all the classes for staff and patrons.
-var patronClassArray = [fratBoy, bachelorette, underage, beer_Snob, the_Regular]; //push each patron class into this array
+var patronClassArray = [fratBoy, bachelorette, underage_Kid, beer_Snob, the_Regular]; //push each patron class into this array
 var staffClassArray = [bartender, bouncer, waitress, cook, manager]; //push each staff class into this array
 module.exports = {
     patronClassArray, staffClassArray

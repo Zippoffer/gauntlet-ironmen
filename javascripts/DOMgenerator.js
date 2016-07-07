@@ -18,14 +18,47 @@ $(document).ready(function(){
 	$("#staffFight").click(barWars.staffBaseAttack);
 	/////***DropDown Populating Functions***\\\\\
 	function populatePatronClasses(){
+
+    let mouseIn = function() {
+    // console.log("this.id", this.id)
+      for (var x in classes.patronClassArray) {
+        // console.log("classes.patronClassArray[x]", classes.patronClassArray[x]);
+        if (classes.patronClassArray[x].name === this.id) {
+          // console.log("MATCH");
+          let currentMouseOver = classes.patronClassArray[x];
+          console.log("name", currentMouseOver.name);
+          console.log("pleasure", currentMouseOver.pleasure);
+          console.log("sobriety", currentMouseOver.sobriety);
+          console.log("max health points", currentMouseOver.maxPoints);
+          console.log("min health points", currentMouseOver.minPoints);
+        }
+      }
+    }
+    let mouseOut = function() {
+      console.log("OUT");
+    }
+
 		for(let i = 0; i < classes.patronClassArray.length; i++){
 			let currentClass = classes.patronClassArray[i];
 			let currentClassName = currentClass.name; 
 			let currentClassDisplayName = currentClassName.replace(/_/g, " ");
 
-			$("#patronClasses").append(`<option value="${currentClassName}">${currentClassDisplayName}</option>`);
+			$("#patronClasses").append(`<option id="${currentClassName}" value="${currentClassName}">${currentClassDisplayName}</option>`);
+
+      $(`#${currentClassName}`).hover(mouseIn, mouseOut);
 		}
-	}
+
+
+  
+	
+
+}
+
+  
+
+
+  // $("option").click(functionOne);
+
 
 	function populatePatronAttacks(){
 		for(let i = 0; i < attacks.patronAttacksArray.length; i++){

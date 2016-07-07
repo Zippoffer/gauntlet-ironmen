@@ -13,7 +13,9 @@ function PitcherOfBeer(){
 	this.favoriteClass = "Frat_Boy";
 	this.favoriteClassBonus = 1;
 	this.opposingStat = "stress";
-	this.phrase = " chugs a pitcher of PBR, and belches in the face of ";
+	this.attackPhrase = `patronName chugs a pitcher of PBR, and belches in the face of staffName.`;
+	// this.successPhrase = `${staffName} is staggered by the stench and twists an ankle!`;
+	// this.failPhrase = `But ${staffName} just had a breathmint and is unaffected by the burp!`;
 }
 PitcherOfBeer.prototype = new Attack(3, 3);
 

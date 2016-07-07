@@ -155,9 +155,14 @@ function staffBaseAttack(event){
 		$("#patronFight").prop("disabled", false);
 		console.log("ending PP", patronClass.partyPoints );
 }
-	//helper function for displaying base attack messages 
+	//helper functions for displaying base attack messages 
 function displayDamageMessagesToDOM(startingPP){
 
+}
+
+	//this function is used if the staryingPartyPoints === xxx.partyPoints
+	//after the function completes
+function displayAttackFailureMessage(){
 }
 
 /////***Exports for Browserify***\\\\\

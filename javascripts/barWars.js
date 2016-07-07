@@ -39,6 +39,7 @@ function identifyPatronClass(event) {
   patronName = patronClass.name.replace(/_/g, " ");
   // console.log("patronName", patronName);
   $("#patronClasses").prop("disabled", true);
+  $("#patronPointsLabel").text(`${patronName} Party Points: `);
   $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
 }
 
@@ -53,6 +54,7 @@ function identifyStaffClass(event) {
   staffName = staffClass.name.replace(/_/g, " ");
   // console.log("staffName", staffName);
   $("#staffClasses").prop("disabled", true);
+  $("#staffPointsLabel").text(`${staffName} Party Points: `);
   $("#staffPointsSpan").text(staffClass.partyPoints); //print starting points to DOM
 }
 

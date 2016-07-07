@@ -21,6 +21,9 @@ var staffTurns = 0; //total turns taken by staff
 
 var patronTurn = true;
 
+var patronName = null; //for using in phrases
+var staffName = null;
+
 ///////*****Functions*****\\\\\\\
 //need functions for:
 //running special attacks
@@ -33,6 +36,8 @@ function identifyPatronClass(event) {
             console.log("Patron Class", patronClass);
         }
     }
+    patronName = patronClass.name.replace(/_/g, " ");
+    console.log("patronName", patronName);
     $("#patronClasses").prop("disabled", true);
 }
 
@@ -44,6 +49,8 @@ function identifyStaffClass(event) {
             console.log("Staff Class", staffClass);
         }
     }
+    staffName = staffClass.name.replace(/_/g, " ");
+    console.log("staffName", staffName);
     $("#staffClasses").prop("disabled", true);
 }
 
@@ -52,6 +59,8 @@ function identifyPatronAttack(event) {
         let currentAttack = attacks.patronAttacksArray[i];
         if ($("#patronAttacks").val()[0] === currentAttack.name) {
             patronAttack = currentAttack;
+            patronClass.attack = currentAttack;
+            console.log("patronClass", patronClass);
             console.log("Patron Attack", patronAttack);
         }
     }
@@ -75,6 +84,11 @@ function patronBaseAttack(event) {
     let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
     let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage); 
     let totalDamage = 0;
+
+    let patronAttackPhrase = patronClass.attack.attackPhrase.replace(/patronName/g, patronName);
+		patronAttackPhrase = patronAttackPhrase.replace(/staffName/g, staffName);
+    $("#output").prepend(`<p class="attackPhrase">${patronAttackPhrase}</p>`);
+
     if (patronAttack.opposingStat === "stress") { //if the opposing stat is stress then use this attack scenario
         if (attackValue >= staffClass.stress) { //compare the hit value to stress
             if (patronClass.name === patronAttack.favoriteClass) { //if it is the favored class add the bonus damage
@@ -110,6 +124,7 @@ function patronBaseAttack(event) {
             }
         }
     }
+    console.log("attack:", patronClass.attack.attackPhrase.replace(/patronName/g, patronName));
     totalTurns++;
     patronTurns++;
     staffClass.partyPoints -= totalDamage;
@@ -124,6 +139,11 @@ function staffBaseAttack(event) {
     let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
     let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage); 
     let totalDamage = 0;
+
+    let staffAttackPhrase = staffClass.attack.attackPhrase.replace(/patronName/g, patronName);
+		staffAttackPhrase = staffAttackPhrase.replace(/staffName/g, staffName);
+    $("#output").prepend(`<p class="attackPhrase">${staffAttackPhrase}</p>`);
+
     if (staffAttack.opposingStat === "pleasure") { //if the opposing stat is pleasure then use this attack scenario
         if (attackValue >= patronClass.pleasure) { //compare the hit value to pleasure
             if (staffClass.name === staffAttack.favoriteClass) { //if it is the favored class add the bonus damage

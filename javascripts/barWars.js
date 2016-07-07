@@ -97,13 +97,13 @@ function patronBaseAttack(event) {
     if (patronAttack.opposingStat === "stress") { //if the opposing stat is stress then use this attack scenario
         if (attackValue >= staffClass.stress) { //compare the hit value to stress
             if (patronClass.name === patronAttack.favoriteClass) { //if it is the favored class add the bonus damage
-                if (attackValue >= staffClass.stress + 5) { //if it is favored AND 5+ more that stress multiply damage by 3
+                if (attackValue >= staffClass.stress + 8) { //if it is favored AND 5+ more that stress multiply damage by 3
                     totalDamage = 3 * (baseDamage + patronAttack.favoriteClassBonus);
                 } else { //if it is favored and NOT 5+ over the stress level do normal damage 
                     totalDamage = baseDamage + patronAttack.favoriteClassBonus;
                 }
             } else {
-                if (attackValue >= staffClass.stress + 5) {
+                if (attackValue >= staffClass.stress + 8) {
                     totalDamage = 3 * (baseDamage);
                 } else {
                     totalDamage = baseDamage;
@@ -115,14 +115,14 @@ function patronBaseAttack(event) {
         if (RNG.d20Random() >= staffClass.money) {
             if (attackValue >= staffClass.money) {
                 if (patronClass.name === patronAttack.favoriteClass) {
-                    if (attackValue >= staffClass.money + 5) {
+                    if (attackValue >= staffClass.money + 8) {
                         totalDamage = 3 * (baseDamage + patronAttack.favoriteClassBonus);
                         displayAttackSuccessMessage(patronClass, staffClass, totalDamage);
                     } else {
                         totalDamage = baseDamage + patronAttack.favoriteClassBonus;
                     }
                 } else {
-                    if (attackValue >= staffClass.money + 5) {
+                    if (attackValue >= staffClass.money + 8) {
                         totalDamage = 3 * (baseDamage);
                     } else {
                         totalDamage = baseDamage;
@@ -164,13 +164,13 @@ function staffBaseAttack(event) {
     if (staffAttack.opposingStat === "pleasure") { //if the opposing stat is pleasure then use this attack scenario
         if (attackValue >= patronClass.pleasure) { //compare the hit value to pleasure
             if (staffClass.name === staffAttack.favoriteClass) { //if it is the favored class add the bonus damage
-                if (attackValue >= patronClass.pleasure + 5) { //if it is favored AND 5+ more that pleasure multiply damage by 3
+                if (attackValue >= patronClass.pleasure + 8) { //if it is favored AND 5+ more that pleasure multiply damage by 3
                     totalDamage = 3 * ((baseDamage) + staffAttack.favoriteClassBonus);
                 } else { //if it is favored and NOT 5+ over the pleasure level do normal damage 
                     totalDamage = baseDamage + staffAttack.favoriteClassBonus;
                 }
             } else { //if no favored class roll on this nest of statements
-                if (attackValue >= patronClass.pleasure + 5) {
+                if (attackValue >= patronClass.pleasure + 8) {
                     totalDamage = 3 * baseDamage;
                 } else {
                     totalDamage = baseDamage;
@@ -181,13 +181,13 @@ function staffBaseAttack(event) {
         if (RNG.d20Random() >= patronClass.sobriety) {
             if (attackValue >= patronClass.sobriety) {
                 if (staffClass.name === staffAttack.favoriteClass) {
-                    if (attackValue >= patronClass.sobriety + 5) {
+                    if (attackValue >= patronClass.sobriety + 8) {
                         totalDamage = 3 * (baseDamage + staffAttack.favoriteClassBonus);
                     } else {
                         totalDamage = baseDamage + staffAttack.favoriteClassBonus;
                     }
                 } else {
-                    if (attackValue >= patronClass.sobriety + 5) {
+                    if (attackValue >= patronClass.sobriety + 8) {
                         totalDamage = 3 * baseDamage ;
                     } else {
                         totalDamage = baseDamage;

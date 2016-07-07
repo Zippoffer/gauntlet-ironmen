@@ -9,13 +9,13 @@ body {
 .outer {
 	background-image: url(http://covermyfb.com/media/covers/07zUlMvNDOievNoW.jpg);
 	/*background-image: url(http://www.clipartbest.com/cliparts/9Tz/EBd/9TzEBdRac.jpeg);*/
-	background-size: 100% 300px;
+	background-size: 100% 400px;
 	background-position: no-repeat;
 	image-position: top;
 	margin: 1em 0 0 12em;
-	width: 600px;
+	width: 800px;
 	/*width: 50vw;*/
-	height: 600px;
+	height: 800px;
 	border: 1px solid white;
 	border-collapse: none;
 	/*position: relative;*/
@@ -31,7 +31,7 @@ body {
 	background-color: lightgreen;
 	width: 100%;
 	/*width: 598px;*/
-	height: 500px;
+	height: 700px;
 	margin-top: 25%;
 	/*border: 1px solid black;*/
 }
@@ -44,7 +44,7 @@ body {
 	background-position: no-repeat;
 	/*background-color: wheat;*/
 	width: 100%;
-	height: 400px;
+	height: 600px;
 	padding-bottom: 14px;
 	margin-top: -5px;
 	/*margin: 12% 12% 12% 12%;*/
@@ -110,7 +110,7 @@ body {
 	width: auto;
 	height: auto;
 	float: left;
-	top: 100px;
+	top: 150px;
 	/*left: -89px;*/
 	right: 100px;
 	/*margin-right: 100px;*/
@@ -123,7 +123,7 @@ body {
 	height: auto;
 	float: right;
 	position: relative;
-	top: 35px;
+	top: 135px;
 	/*right:-89px;*/
 	left: 80px;
 	/*margin-left: 100px;*/
@@ -145,18 +145,19 @@ label {
 #output {
 	background-color: wheat;
 	border: 1px solid black;
-	height:340px;
+	height:540px;
 	/*width: 350px;*/
-	width: 57%;
+	width: 67%;
 	left: 132px;
 	top: -60px;
 	position: relative;
 	box-shadow: inset 0 0 10px black;
+	overflow: scroll;
 }
 #staffFight {
 	position: relative;
-	top: 170px;
-	left: 330px;
+	top: 270px;
+	left: 130px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -165,7 +166,7 @@ label {
 }
 #patronFight {
 	position: relative;
-	top: 230px;
+	top: 270px;
 	right: 360px;
 	border-radius: 200px;
 	height: 60px;
@@ -175,8 +176,8 @@ label {
 }
 #patronSpecial {
 	position: relative;
-	top: 280px;
-	right: 70px;
+	top: 380px;
+	right: 370px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -186,7 +187,7 @@ label {
 #staffSpecial {
 	position: relative;
 	top: 280px;
-	left: 270px;
+	left: 600px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;

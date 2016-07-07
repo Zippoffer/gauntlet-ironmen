@@ -23,12 +23,7 @@ var patronTurn = true;
 
 ///////*****Functions*****\\\\\\\
 //need functions for:
-	//comparing to secondary stats
-	//adjusting life totals
 	//running special attacks
-	//running base attacks
-	////function for rolling damage.
-	//changing button's disabled status on turn change
 /////***Functions to get user input***\\\\\
 function identifyPatronClass(event){
 	for(let i = 0; i < classes.patronClassArray.length; i++){
@@ -38,6 +33,7 @@ function identifyPatronClass(event){
 			console.log("Patron Class", patronClass);
 		}
 	}
+	$("#patronClasses").prop("disabled", true);
 }
 function identifyStaffClass(event){
 	for(let i = 0; i < classes.staffClassArray.length; i++){
@@ -47,6 +43,7 @@ function identifyStaffClass(event){
 			console.log("Staff Class", staffClass);
 		}
 	}
+	$("#staffClasses").prop("disabled", true);
 }
 function identifyPatronAttack(event){
 	for(let i = 0; i < attacks.patronAttacksArray.length; i++){
@@ -68,8 +65,10 @@ function identifyStaffAttack(event){
 }
 /////***Attack Functions***\\\\\\
 function patronBaseAttack(event){
+	$("#patronFight").prop("disabled", true);
 	console.log("starting staff PP", staffClass.partyPoints);
 	let attackValue = RNG.d20Random();
+	let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
 	if (patronAttack.opposingStat === "stress"){ //if the opposing stat is stress then use this attack scenario
 		if (attackValue >= staffClass.stress){//compare the hit value to stress
 			if(patronClass.name === patronAttack.favoriteClass){ //if it is the favored class add the bonus damage
@@ -107,12 +106,15 @@ function patronBaseAttack(event){
 	}
 		totalTurns++;
 		patronTurns++;
+		$("#staffFight").prop("disabled", false);
 		console.log("ending PP", staffClass.partyPoints );
 }
 
 function staffBaseAttack(event){
 	console.log("starting patron PP", patronClass.partyPoints);
+	$("#staffFight").prop("disabled", true);
 	let attackValue = RNG.d20Random();
+	let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
 	if (staffAttack.opposingStat === "pleasure"){ //if the opposing stat is pleasure then use this attack scenario
 		if (attackValue >= patronClass.pleasure){//compare the hit value to pleasure
 			if(staffClass.name === staffAttack.favoriteClass){ //if it is the favored class add the bonus damage
@@ -121,7 +123,7 @@ function staffBaseAttack(event){
 				} else { //if it is favored and NOT 5+ over the pleasure level do normal damage 
 					patronClass.partyPoints -= RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus;
 				}
-			} else {
+			} else {//if no favored class roll on this nest of statements
 				if(attackValue >= patronClass.pleasure + 5 ){
 					patronClass.partyPoints -= 3 * (RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus);
 				} else {
@@ -129,7 +131,7 @@ function staffBaseAttack(event){
 				}
 			}
 		}
-	} else {
+	} else { //use the following is comparing to sobriety
 		if (RNG.d20Random() >= patronClass.sobriety){
 			if (attackValue >= patronClass.sobriety){
 				if(staffClass.name === staffAttack.favoriteClass){
@@ -150,7 +152,17 @@ function staffBaseAttack(event){
 	}
 		totalTurns++;
 		staffTurns++;
+		$("#patronFight").prop("disabled", false);
 		console.log("ending PP", patronClass.partyPoints );
+}
+	//helper functions for displaying base attack messages 
+function displayDamageMessagesToDOM(startingPP){
+
+}
+
+	//this function is used if the staryingPartyPoints === xxx.partyPoints
+	//after the function completes
+function displayAttackFailureMessage(){
 }
 
 /////***Exports for Browserify***\\\\\

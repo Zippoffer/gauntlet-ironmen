@@ -29,11 +29,14 @@ $(document).ready(function(){
         for (var x in classes.patronClassArray) {
           if (classes.patronClassArray[x].name === this.id) {
             let currentMouseOver = classes.patronClassArray[x];
-            $("#output").append(`<p>Name: ${currentMouseOver.name}</p>`);
-            $("#output").append(`<p>Pleasure: ${currentMouseOver.pleasure}</p>`);
-            $("#output").append(`<p>Sobriety: ${currentMouseOver.sobriety}</p>`);
-            $("#output").append(`<p>Max Health Points: ${currentMouseOver.maxPoints}</p>`);
-            $("#output").append(`<p>Min Health Points: ${currentMouseOver.minPoints}</p>`);
+            let htmlHolder = "";
+           htmlHolder += (`<p>Name: ${currentMouseOver.name}</p>`);
+           htmlHolder += (`<p>Pleasure: ${currentMouseOver.pleasure}</p>`);
+           htmlHolder += (`<p>Sobriety: ${currentMouseOver.sobriety}</p>`);
+           htmlHolder += (`<p>Max Health Points: ${currentMouseOver.maxPoints}</p>`);
+           htmlHolder += (`<p>Min Health Points: ${currentMouseOver.minPoints}</p>`);
+            htmlHolder = htmlHolder.replace(/_/g, " ");
+            $("#output").html(htmlHolder);
           }
         }
       }
@@ -63,9 +66,12 @@ $(document).ready(function(){
         for (var x in attacks.patronAttacksArray) {
           if (attacks.patronAttacksArray[x].name === this.id) {
             let currentMouseOver = attacks.patronAttacksArray[x];
-            $("#output").append(`<p>Name: ${currentMouseOver.name}</p>`);
-            $("#output").append(`<p>Favorite User: ${currentMouseOver.favoriteClass}</p>`);
-            $("#output").append(`<p>Favorite User Bonus: ${currentMouseOver.favoriteClassBonus}</p>`);
+            let htmlHolder = "";
+            htmlHolder += (`<p>Name: ${currentMouseOver.name}</p>`);
+            htmlHolder += (`<p>Favorite User: ${currentMouseOver.favoriteClass}</p>`);
+            htmlHolder += (`<p>Favorite User Bonus: ${currentMouseOver.favoriteClassBonus}</p>`);
+            htmlHolder = htmlHolder.replace(/_/g, " ");
+            $("#output").html(htmlHolder);
           }
         }
       }
@@ -95,11 +101,14 @@ $(document).ready(function(){
         for (var x in classes.staffClassArray) {
           if (classes.staffClassArray[x].name === this.id) {
             let currentMouseOver = classes.staffClassArray[x];
-            $("#output").append(`<p>Name: ${currentMouseOver.name}</p>`);
-            $("#output").append(`<p>Money: ${currentMouseOver.money}</p>`);
-            $("#output").append(`<p>Stress Level: ${currentMouseOver.stress}</p>`);
-            $("#output").append(`<p>Max Health Points: ${currentMouseOver.maxPoints}</p>`);
-            $("#output").append(`<p>Min Health Points: ${currentMouseOver.minPoints}</p>`);
+            let htmlHolder = "";
+            htmlHolder += (`<p>Name: ${currentMouseOver.name}</p>`);
+            htmlHolder += (`<p>Money: ${currentMouseOver.money}</p>`);
+            htmlHolder += (`<p>Stress Level: ${currentMouseOver.stress}</p>`);
+            htmlHolder += (`<p>Max Health Points: ${currentMouseOver.maxPoints}</p>`);
+            htmlHolder += (`<p>Min Health Points: ${currentMouseOver.minPoints}</p>`);
+            htmlHolder = htmlHolder.replace(/_/g, " ");
+            $("#output").html(htmlHolder);
           }
         }
       }
@@ -128,9 +137,12 @@ $(document).ready(function(){
         for (var x in attacks.staffAttacksArray) {
           if (attacks.staffAttacksArray[x].name === this.id) {
             let currentMouseOver = attacks.staffAttacksArray[x];
-            $("#output").append(`<p>Name: ${currentMouseOver.name}</p>`);
-            $("#output").append(`<p>Favorite User: ${currentMouseOver.favoriteClass}</p>`);
-            $("#output").append(`<p>Favorite User Bonus: ${currentMouseOver.favoriteClassBonus}</p>`);
+            let htmlHolder = ""
+            htmlHolder += (`<p>Name: ${currentMouseOver.name}</p>`);
+            htmlHolder += (`<p>Favorite User: ${currentMouseOver.favoriteClass}</p>`);
+            htmlHolder += (`<p>Favorite User Bonus: ${currentMouseOver.favoriteClassBonus}</p>`);
+            htmlHolder = htmlHolder.replace(/_/g, " ");
+            $("#output").html(htmlHolder);
           }
         }
       }

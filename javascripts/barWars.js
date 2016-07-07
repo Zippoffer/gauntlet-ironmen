@@ -39,6 +39,8 @@ function identifyPatronClass(event) {
   patronName = patronClass.name.replace(/_/g, " ");
 
   $("#patronClasses").prop("disabled", true);
+\  $("#patronPointsLabel").text(`${patronName} Party Points: `);
+  $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
   $("#staffClasses").prop("disabled", false);
 }
 
@@ -53,6 +55,8 @@ function identifyStaffClass(event) {
   staffName = staffClass.name.replace(/_/g, " ");
   // console.log("staffName", staffName);
   $("#staffClasses").prop("disabled", true);
+  $("#staffPointsLabel").text(`${staffName} Party Points: `);
+  $("#staffPointsSpan").text(staffClass.partyPoints); //print starting points to DOM
   $("#patronAttacks").prop("disabled", false);
 }
 
@@ -139,13 +143,18 @@ function patronBaseAttack(event) {
     totalTurns++;
     patronTurns++;
     staffClass.partyPoints -= totalDamage;
-      if (staffClass.partyPoints < 1){
+
+		$("#staffPointsSpan").text(staffClass.partyPoints); //change points display #
+    checkPointsDisplay(staffClass.partyPoints); //update styling of points display
+
+    if (staffClass.partyPoints < 1){
     	$("#staffFight").prop("disabled", true);
     	$("#output").prepend(`<h3 class="victory">The ${patronName} WINS!</h3>`);
     } else {
     	$("#staffFight").prop("disabled", false);
     }
     // console.log("ending PP", staffClass.partyPoints);
+    patronTurn = false; //changes to staff's turn
 }
 
 function staffBaseAttack(event) {
@@ -204,6 +213,10 @@ function staffBaseAttack(event) {
     totalTurns++;
     staffTurns++;
     patronClass.partyPoints -= totalDamage;
+
+		$("#patronPointsSpan").text(patronClass.partyPoints); //change points display #
+    checkPointsDisplay(patronClass.partyPoints); //update styling of points display
+
     if (patronClass.partyPoints < 1){
     	$("#patronFight").prop("disabled", true);
     	$("#output").prepend(`<h3 class="victory">The ${staffName} WINS!</h3>`);
@@ -211,8 +224,27 @@ function staffBaseAttack(event) {
     	$("#patronFight").prop("disabled", false);
     }
     // console.log("ending PP", patronClass.partyPoints);
+    patronTurn = true; //changes to patron's turn
+
 }
-///////*****Special Attack Functions*****\\\\\\\
+
+
+//helper function for updating the party points display
+function checkPointsDisplay (points) {
+	var $targetPoints = $("#patronPointsSpan");
+	if (patronTurn === true){
+		$targetPoints = $("#staffPointsSpan");
+	}
+
+	if (points < 10) {
+		$targetPoints.removeClass("dying").addClass("almostDead"); //change class of div to display red(points < 50)
+	} else if (points < 25) {
+		$targetPoints.removeClass("hurting").addClass("dying"); //change class of div to display orange
+	} else if (points < 50) {
+		$targetPoints.removeClass("healthy").addClass("hurting"); //change class of div to display yellow
+	}
+}
+
 
 
 //helper functions for displaying base attack messages 

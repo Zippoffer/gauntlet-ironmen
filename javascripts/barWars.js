@@ -87,7 +87,7 @@ function patronBaseAttack(event) {
 
     let patronAttackPhrase = patronClass.attack.attackPhrase.replace(/patronName/g, patronName);
 		patronAttackPhrase = patronAttackPhrase.replace(/staffName/g, staffName);
-    $("#output").prepend(`<p class="attackPhrase">${patronAttackPhrase}</p>`);
+    $("#output").prepend(`<div class="damageCard" id="turn__${totalTurns}__results"><p class="attackPhrase">${patronAttackPhrase}</p></div>`);
 
     if (patronAttack.opposingStat === "stress") { //if the opposing stat is stress then use this attack scenario
         if (attackValue >= staffClass.stress) { //compare the hit value to stress
@@ -102,6 +102,7 @@ function patronBaseAttack(event) {
                     totalDamage = 3 * (baseDamage);
                 } else {
                     totalDamage = baseDamage;
+
                 }
             }
         }
@@ -111,6 +112,7 @@ function patronBaseAttack(event) {
                 if (patronClass.name === patronAttack.favoriteClass) {
                     if (attackValue >= staffClass.money + 5) {
                         totalDamage = 3 * (baseDamage + patronAttack.favoriteClassBonus);
+                        displayAttackSuccessMessage(patronClass, staffClass, totalDamage);
                     } else {
                         totalDamage = baseDamage + patronAttack.favoriteClassBonus;
                     }
@@ -124,25 +126,35 @@ function patronBaseAttack(event) {
             }
         }
     }
+    if (totalDamage > 0 ){
+    	displayAttackSuccessMessage(patronClass, staffClass, totalDamage);
+    } else {
+    	displayAttackFailureMessage(patronClass, staffClass);
+    }
     totalTurns++;
     patronTurns++;
     staffClass.partyPoints -= totalDamage;
-    $("#staffFight").prop("disabled", false);
-    console.log("ending PP", staffClass.partyPoints);
+      if (staffClass.partyPoints < 1){
+    	$("#staffFight").prop("disabled", true);
+    	$("#output").prepend(`<h3 class="victory">The ${patronClass.name} WINS!</h3>`);
+    } else {
+    	$("#staffFight").prop("disabled", false);
+    }
+    // console.log("ending PP", staffClass.partyPoints);
 }
 
 function staffBaseAttack(event) {
     console.log("starting patron PP", patronClass.partyPoints);
     $("#staffFight").prop("disabled", true);
     let attackValue = RNG.d20Random();
-    console.log("Staff attack roll", attackValue );
+    console.log("Staff attack roll", attackValue);
     let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
     let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage); 
     let totalDamage = 0;
 
     let staffAttackPhrase = staffClass.attack.attackPhrase.replace(/patronName/g, patronName);
 		staffAttackPhrase = staffAttackPhrase.replace(/staffName/g, staffName);
-    $("#output").prepend(`<p class="attackPhrase">${staffAttackPhrase}</p>`);
+    $("#output").prepend(`<div class="damageCard" id="turn__${totalTurns}__results"><p class="attackPhrase">${staffAttackPhrase}</p></div>`);
 
     if (staffAttack.opposingStat === "pleasure") { //if the opposing stat is pleasure then use this attack scenario
         if (attackValue >= patronClass.pleasure) { //compare the hit value to pleasure
@@ -179,21 +191,37 @@ function staffBaseAttack(event) {
             }
         }
     }
+    if(totalDamage > 0){
+    	displayAttackSuccessMessage(staffClass, patronClass, totalDamage);
+    } else {
+    	displayAttackFailureMessage(staffClass, patronClass);
+    }
     totalTurns++;
     staffTurns++;
     patronClass.partyPoints -= totalDamage;
-    $("#patronFight").prop("disabled", false);
-    console.log("ending PP", patronClass.partyPoints);
+    if (patronClass.partyPoints < 1){
+    	$("#patronFight").prop("disabled", true);
+    	$("#output").prepend(`<h3 class="victory">The ${staffClass.name} WINS!</h3>`);
+    } else {
+    	$("#patronFight").prop("disabled", false);
+    }
+    // console.log("ending PP", patronClass.partyPoints);
 }
 //helper functions for displaying base attack messages 
-function displayDamageMessagesToDOM(startingPP) {
-
+function displayAttackSuccessMessage(attackingClass, defendingClass, damage) {
+	let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/patronName/g, attackingClass.name);
+	attackerSuccessPhrase = attackerSuccessPhrase.replace(/staffName/g, defendingClass.name);
+	$(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
+	$(`#turn__${totalTurns}__results`).append(`<p> ${attackingClass.name} knocks off ${damage} Party Points from ${defendingClass.name}!</p>`);
 }
 
 //this function is used if the staryingPartyPoints === xxx.partyPoints
 //after the function completes
-function displayAttackFailureMessage() {}
-
+function displayAttackFailureMessage(attackingClass, defendingClass) {
+	let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/patronName/g, attackingClass.name);
+	attackerFailPhrase = attackerFailPhrase.replace(/staffName/g, defendingClass.name);
+	$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);
+}
 
 /////***Exports for Browserify***\\\\\
 module.exports = {

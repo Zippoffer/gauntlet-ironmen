@@ -49,6 +49,9 @@ function Darts(){
   this.favoriteClass = "Beer_Snob";
   this.favoriteClassBonus = 2;
   this.opposingStat = "money";
+  this.attackPhrase = `patronName tries throwing darts after 8 beers and mistakes staffName's nose for a bullseye.`;
+  this.successPhrase = `The errant dart misses staffName's nose, but penetrates the left eye instead.`;
+  this.failPhrase = `But staffName actually has a steel plate installed after a circus accident and the dart bounces off harmlessly.`;
 }
 Darts.prototype = new Attack(2, 4);
 
@@ -58,6 +61,9 @@ function KaraokeMachine(){
   this.favoriteClass = "The_Regular";
   this.favoriteClassBonus = 2;
   this.opposingStat = "stress";
+  this.attackPhrase = `patronName delivers a tone-deaf Karaoke version of "Baby Got Back" that has dogs within a 50 mile radius running for cover.`;
+  this.successPhrase = `staffName is injured when a glass explodes in their hand!`;
+  this.failPhrase = `But staffName developed tenittis at Grateful Dead concerts in the '70's and can't hear a lick.`;
 }
 KaraokeMachine.prototype = new Attack(1, 5);
 

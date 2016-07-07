@@ -38,6 +38,7 @@ function identifyPatronClass(event){
 			console.log("Patron Class", patronClass);
 		}
 	}
+	$("#patronClasses").prop("disabled", true);
 }
 function identifyStaffClass(event){
 	for(let i = 0; i < classes.staffClassArray.length; i++){
@@ -47,6 +48,7 @@ function identifyStaffClass(event){
 			console.log("Staff Class", staffClass);
 		}
 	}
+	$("#staffClasses").prop("disabled", true);
 }
 function identifyPatronAttack(event){
 	for(let i = 0; i < attacks.patronAttacksArray.length; i++){

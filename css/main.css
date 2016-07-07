@@ -128,18 +128,23 @@ body {
 	/*border: 1px solid black;*/
 }
 label {
+	font-family: bungee;
 	/*padding-left: 2em;*/
 	position: relative;
-	left: 32px;
+	left: auto;
 	text-align: center;
 	font-size: 2em;
-	color: crimson;
+	/*color: crimson;*/
+	/*color: firebrick;*/
+	/*color: #FF3030;*/
+	color: #FFC125;
 }
 #output {
 	background-color: wheat;
 	border: 1px solid black;
 	height:340px;
-	width: 350px;
+	/*width: 350px;*/
+	width: 57%;
 	left: 130px;
 	top: -60px;
 	position: relative;
@@ -148,7 +153,7 @@ label {
 #staffFight {
 	position: relative;
 	top: 170px;
-	left: 400px;
+	left: 330px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -158,7 +163,7 @@ label {
 #patronFight {
 	position: relative;
 	top: 230px;
-	right: 300px;
+	right: 360px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -167,8 +172,8 @@ label {
 }
 #patronSpecial {
 	position: relative;
-	top: 330px;
-	right: 360px;
+	top: 280px;
+	right: 70px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -177,8 +182,8 @@ label {
 }
 #staffSpecial {
 	position: relative;
-	top: 270px;
-	left: 340px;
+	top: 280px;
+	left: 270px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;

@@ -39,6 +39,7 @@ function identifyPatronClass(event) {
   patronName = patronClass.name.replace(/_/g, " ");
   // console.log("patronName", patronName);
   $("#patronClasses").prop("disabled", true);
+  $("#patronPoints").text(patronClass.partyPoints); //print starting points to DOM
 }
 
 function identifyStaffClass(event) {
@@ -52,6 +53,7 @@ function identifyStaffClass(event) {
   staffName = staffClass.name.replace(/_/g, " ");
   // console.log("staffName", staffName);
   $("#staffClasses").prop("disabled", true);
+  $("#staffPoints").text(staffClass.partyPoints); //print starting points to DOM
 }
 
 function identifyPatronAttack(event) {
@@ -127,6 +129,10 @@ function patronBaseAttack(event) {
     totalTurns++;
     patronTurns++;
     staffClass.partyPoints -= totalDamage;
+
+    $("#staffPoints").text(staffClass.partyPoints); //change points display #
+    // var status = checkPointsDisplay(staffClass.partyPoints); //update styling of points display
+ 
     $("#staffFight").prop("disabled", false);
     console.log("ending PP", staffClass.partyPoints);
 }
@@ -182,9 +188,31 @@ function staffBaseAttack(event) {
     totalTurns++;
     staffTurns++;
     patronClass.partyPoints -= totalDamage;
+
+    $("#patronPoints").text(patronClass.partyPoints); //change points display #
+    // checkPointsDisplay(patronClass.partyPoints); //update styling of points display
+
     $("#patronFight").prop("disabled", false);
     console.log("ending PP", patronClass.partyPoints);
 }
+
+//helper function for updating the party points display
+function checkPointsDisplay (points) {
+	var pointsDisplayClass = "healthy";
+	if (points < 50){
+		pointsDisplayClass = "hurting";
+		//change class of div to display yellow
+	} else if (points < 25){
+		pointsDisplayClass = "dying";
+		//change class of div to display orange
+	} else if (points < 10){
+		pointsDisplayClass = "almostDead";
+		//change class of div to display red
+	}
+	return pointsDisplayClass;
+}
+
+
 //helper functions for displaying base attack messages 
 function displayDamageMessagesToDOM(startingPP) {
 

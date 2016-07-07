@@ -23,12 +23,7 @@ var patronTurn = true;
 
 ///////*****Functions*****\\\\\\\
 //need functions for:
-	//comparing to secondary stats
-	//adjusting life totals
 	//running special attacks
-	//running base attacks
-	////function for rolling damage.
-	//changing button's disabled status on turn change
 /////***Functions to get user input***\\\\\
 function identifyPatronClass(event){
 	for(let i = 0; i < classes.patronClassArray.length; i++){
@@ -126,7 +121,7 @@ function staffBaseAttack(event){
 				} else { //if it is favored and NOT 5+ over the pleasure level do normal damage 
 					patronClass.partyPoints -= RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus;
 				}
-			} else {
+			} else {//if no favored class roll on this nest of statements
 				if(attackValue >= patronClass.pleasure + 5 ){
 					patronClass.partyPoints -= 3 * (RNG.randomRange(staffAttack.minDamage, staffAttack.maxDamage) + staffAttack.favoriteClassBonus);
 				} else {
@@ -134,7 +129,7 @@ function staffBaseAttack(event){
 				}
 			}
 		}
-	} else {
+	} else { //use the following is comparing to sobriety
 		if (RNG.d20Random() >= patronClass.sobriety){
 			if (attackValue >= patronClass.sobriety){
 				if(staffClass.name === staffAttack.favoriteClass){
@@ -157,6 +152,10 @@ function staffBaseAttack(event){
 		staffTurns++;
 		$("#patronFight").prop("disabled", false);
 		console.log("ending PP", patronClass.partyPoints );
+}
+
+function displayMessagesToDOM(){
+	
 }
 
 /////***Exports for Browserify***\\\\\

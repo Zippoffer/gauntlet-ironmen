@@ -14,6 +14,7 @@ function Patron(patronPleasure, patronSobriety, minPartyPoints, maxPartyPoints) 
     this.maxPoints = maxPartyPoints;
     this.pleasure = patronPleasure;
     this.sobriety = patronSobriety;
+    this.patron = true;
     this.partyPoints = RNG.randomRange(minPartyPoints, maxPartyPoints);
 }
 Patron.prototype = new Person();
@@ -24,6 +25,7 @@ function Staff(staffStress, staffMoney, minPartyPoints, maxPartyPoints) {
     this.maxPoints = maxPartyPoints;
     this.stress = staffStress;
     this.money = staffMoney;
+    this.patron = false;
     this.partyPoints = RNG.randomRange(minPartyPoints, maxPartyPoints);
 }
 Staff.prototype = new Person();
@@ -33,7 +35,7 @@ Staff.prototype = new Person();
 //This attack is set by the user
 function FratBoy() {
     this.name = "Frat_Boy";
-    this.special = null;
+    this.special = specials.funnelWingmanCall;
     this.attack = null;
 }
 FratBoy.prototype = new Patron(11, 8, 85, 100);

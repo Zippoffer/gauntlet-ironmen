@@ -12,10 +12,10 @@ body {
 	background-size: 100% 400px;
 	background-position: no-repeat;
 	image-position: top;
-	margin: 1em 0 0 12em;
+	/*margin: 2em 3em 2em 0;*/
 	width: 800px;
 	/*width: 50vw;*/
-	height: 800px;
+	height: 200px;
 	border: 1px solid white;
 	border-collapse: none;
 	/*position: relative;*/
@@ -31,7 +31,7 @@ body {
 	background-color: lightgreen;
 	width: 100%;
 	/*width: 598px;*/
-	height: 700px;
+	height: 500px;
 	margin-top: 25%;
 	/*border: 1px solid black;*/
 }
@@ -44,7 +44,7 @@ body {
 	background-position: no-repeat;
 	/*background-color: wheat;*/
 	width: 100%;
-	height: 600px;
+	height: 400px;
 	padding-bottom: 14px;
 	margin-top: -5px;
 	/*margin: 12% 12% 12% 12%;*/
@@ -96,6 +96,8 @@ body {
 	height: auto;
 	float: left;
 	margin: 1%;
+	position: relative;
+	top: 80px;
 	/*border: 1px solid black;*/
 }
 
@@ -103,6 +105,8 @@ body {
 	width: auto;
 	height: auto;
 	float: right;
+	position: relative;
+	top: 80px;
 	margin: 1%;
 	/*border: 1px solid black;*/
 }
@@ -110,9 +114,9 @@ body {
 	width: auto;
 	height: auto;
 	float: left;
-	top: 150px;
+	top: 170px;
 	/*left: -89px;*/
-	right: 100px;
+	right: 104px;
 	/*margin-right: 100px;*/
 	/*border: 1px solid black;*/
 	position: relative;
@@ -123,9 +127,9 @@ body {
 	height: auto;
 	float: right;
 	position: relative;
-	top: 135px;
+	top: 170px;
 	/*right:-89px;*/
-	left: 80px;
+	left: 83px;
 	/*margin-left: 100px;*/
 	
 	/*border: 1px solid black;*/
@@ -134,7 +138,8 @@ label {
 	font-family: bungee;
 	/*padding-left: 2em;*/
 	position: relative;
-	left: auto;
+	left: 12%;
+	right: auto;
 	text-align: center;
 	font-size: 2em;
 	/*color: crimson;*/
@@ -145,19 +150,20 @@ label {
 #output {
 	background-color: wheat;
 	border: 1px solid black;
-	height:540px;
+	height:340px;
 	/*width: 350px;*/
-	width: 67%;
-	left: 132px;
+	width: 60%;
+	left: 162px;
 	top: -60px;
 	position: relative;
 	box-shadow: inset 0 0 10px black;
 	overflow: scroll;
+	padding-left: 2%;
 }
 #staffFight {
 	position: relative;
 	top: 270px;
-	left: 130px;
+	left: 180px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -176,8 +182,8 @@ label {
 }
 #patronSpecial {
 	position: relative;
-	top: 380px;
-	right: 370px;
+	top: 340px;
+	right: 420px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -194,23 +200,34 @@ label {
 	font-weight: 900;
 	background-color: lightblue;
 }
-/*
-option {
-    display: inline;
-    position: relative;
+#patronPoints {
+	position: relative;
+	bottom: 440px;
+	left: 90px;
+	width: 200px;
+	height: 6px;
+	border: 1px solid black;
+	background-color: green;
 }
-ul {
-    padding: 0;
-    margin: 0;
+#staffPoints {
+	position: relative;
+	bottom: 450px;
+	left: 520px;
+	width: 200px;
+	height: 6px;
+	border: 1px solid black;
+	background-color: red;
+
 }
-ul {
-    position: absolute;
-    display: none;
-    background-color: white;
+.failPhrase {
+	color: red;
 }
-a:hover + ul{
-    display: inline-block;
+.successPhrase {
+	color: green;
 }
-a {
-	display: inline-block;
-}*/
+.attackPhrase {
+	font-weight: 900;
+}
+.damageCard {
+	border: ipx solid black;
+}

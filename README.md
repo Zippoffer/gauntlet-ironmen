@@ -12,7 +12,7 @@ This web-based game puts you on the front lines of the oldest conflict in human 
 Only one will be partying in the morning!
 
 ###Instructions
-To claim victory for yourself following these steps:
+To claim victory for yourself following these steps:  
 1. Fork this repository to your GitHub then use `git clone` to make a copy locally.
 1. Run the following in your local directory:
 ```

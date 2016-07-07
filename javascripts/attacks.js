@@ -118,7 +118,7 @@ function GreasySpatula() {
     this.favoriteClass = "Cook";
     this.favoriteClassBonus = 2;
     this.opposingStat = "pleasure";
-    this.attackPhrase = `staffName flicks a greasey spatula in patronName's direction.`;
+    this.attackPhrase = `staffName flicks a greasy spatula in patronName's direction.`;
     this.successPhrase = `patronName is hit on the face with week-old burger grease!`;
     this.failPhrase = `patronName tastes the grease and asks for an order of whatever produced it.`;
 }

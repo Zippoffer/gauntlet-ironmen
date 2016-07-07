@@ -37,8 +37,9 @@ function identifyPatronClass(event) {
     }
   }
   patronName = patronClass.name.replace(/_/g, " ");
-  // console.log("patronName", patronName);
+
   $("#patronClasses").prop("disabled", true);
+  $("#staffClasses").prop("disabled", false);
 }
 
 function identifyStaffClass(event) {
@@ -52,6 +53,7 @@ function identifyStaffClass(event) {
   staffName = staffClass.name.replace(/_/g, " ");
   // console.log("staffName", staffName);
   $("#staffClasses").prop("disabled", true);
+  $("#patronAttacks").prop("disabled", false);
 }
 
 function identifyPatronAttack(event) {
@@ -62,6 +64,7 @@ function identifyPatronAttack(event) {
         patronClass.attack = currentAttack;
     }
   }
+	$("#staffAttacks").prop("disabled", false);
 }
 
 function identifyStaffAttack(event) {
@@ -73,6 +76,8 @@ function identifyStaffAttack(event) {
             // console.log("Staff Attack", staffAttack);
         }
     }
+  $("#patronFight").prop("disabled", false);
+  $("#staffFight").prop("disabled", false);
 }
 /////***Attack Functions***\\\\\\
 

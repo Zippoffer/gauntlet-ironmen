@@ -71,6 +71,7 @@ function identifyStaffAttack(event) {
         let currentAttack = attacks.staffAttacksArray[i];
         if ($("#staffAttacks").val()[0] === currentAttack.name) {
             staffAttack = currentAttack;
+            staffClass.attack = currentAttack;
             console.log("Staff Attack", staffAttack);
         }
     }

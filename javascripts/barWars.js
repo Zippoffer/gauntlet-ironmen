@@ -68,6 +68,7 @@ function patronBaseAttack(event){
 	$("#patronFight").prop("disabled", true);
 	console.log("starting staff PP", staffClass.partyPoints);
 	let attackValue = RNG.d20Random();
+	let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
 	if (patronAttack.opposingStat === "stress"){ //if the opposing stat is stress then use this attack scenario
 		if (attackValue >= staffClass.stress){//compare the hit value to stress
 			if(patronClass.name === patronAttack.favoriteClass){ //if it is the favored class add the bonus damage
@@ -113,6 +114,7 @@ function staffBaseAttack(event){
 	console.log("starting patron PP", patronClass.partyPoints);
 	$("#staffFight").prop("disabled", true);
 	let attackValue = RNG.d20Random();
+	let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
 	if (staffAttack.opposingStat === "pleasure"){ //if the opposing stat is pleasure then use this attack scenario
 		if (attackValue >= patronClass.pleasure){//compare the hit value to pleasure
 			if(staffClass.name === staffAttack.favoriteClass){ //if it is the favored class add the bonus damage
@@ -153,9 +155,9 @@ function staffBaseAttack(event){
 		$("#patronFight").prop("disabled", false);
 		console.log("ending PP", patronClass.partyPoints );
 }
+	//helper function for displaying base attack messages 
+function displayDamageMessagesToDOM(startingPP){
 
-function displayMessagesToDOM(){
-	
 }
 
 /////***Exports for Browserify***\\\\\

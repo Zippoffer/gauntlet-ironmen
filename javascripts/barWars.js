@@ -207,20 +207,36 @@ function staffBaseAttack(event) {
     }
     // console.log("ending PP", patronClass.partyPoints);
 }
+///////*****Special Attack Functions*****\\\\\\\
+
+
 //helper functions for displaying base attack messages 
 function displayAttackSuccessMessage(attackingClass, defendingClass, damage) {
-	let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/patronName/g, attackingClass.name);
-	attackerSuccessPhrase = attackerSuccessPhrase.replace(/staffName/g, defendingClass.name);
-	$(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
-	$(`#turn__${totalTurns}__results`).append(`<p> ${attackingClass.name} knocks off ${damage} Party Points from ${defendingClass.name}!</p>`);
+	if (attackingClass.patron === true){
+		let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/patronName/g, patronName);
+		attackerSuccessPhrase = attackerSuccessPhrase.replace(/staffName/g, staffName);
+		$(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
+		$(`#turn__${totalTurns}__results`).append(`<p> ${patronName} knocks off ${damage} Party Points from ${defendingClass.name}!</p>`);
+	} else {
+		let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/staffName/g, staffName);
+		attackerSuccessPhrase = attackerSuccessPhrase.replace(/patronName/g, patronName);
+		$(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
+		$(`#turn__${totalTurns}__results`).append(`<p> ${staffName} knocks off ${damage} Party Points from ${defendingClass.name}!</p>`);
+	}
 }
 
 //this function is used if the staryingPartyPoints === xxx.partyPoints
 //after the function completes
 function displayAttackFailureMessage(attackingClass, defendingClass) {
-	let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/patronName/g, attackingClass.name);
-	attackerFailPhrase = attackerFailPhrase.replace(/staffName/g, defendingClass.name);
-	$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);
+	if (attackingClass.patron === true){
+		let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/patronName/g, patronName);
+		attackerFailPhrase = attackerFailPhrase.replace(/staffName/g, staffName);
+		$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);
+	} else {
+		let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/staffName/g, staffName);
+		attackerSuccessPhrase = attackerSuccessPhrase.replace(/patronName/g, patronName);
+		$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerSuccessPhrase}</p>`);	
+	}
 }
 
 /////***Exports for Browserify***\\\\\

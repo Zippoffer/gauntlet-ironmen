@@ -171,5 +171,5 @@ function displayAttackFailureMessage() {}
 
 /////***Exports for Browserify***\\\\\
 module.exports = {
-    identifyPatronClass, identifyStaffClass, identifyStaffAttack, identifyPatronAttack
+    identifyPatronClass, identifyStaffClass, identifyStaffAttack, identifyPatronAttack, patronBaseAttack, staffBaseAttack
 };

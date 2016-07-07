@@ -10,6 +10,8 @@ function Person() {
 
 //Patrons prototype with values of this.pleasure and this.sobriety
 function Patron(patronPleasure, patronSobriety, minPartyPoints, maxPartyPoints) {
+    this.minPoints = minPartyPoints;
+    this.maxPoints = maxPartyPoints;
     this.pleasure = patronPleasure;
     this.sobriety = patronSobriety;
     this.patron = true;
@@ -19,6 +21,8 @@ Patron.prototype = new Person();
 
 //Staff prototype with values of this.stress and this.money;
 function Staff(staffStress, staffMoney, minPartyPoints, maxPartyPoints) {
+		this.minPoints = minPartyPoints;
+    this.maxPoints = maxPartyPoints;
     this.stress = staffStress;
     this.money = staffMoney;
     this.patron = false;

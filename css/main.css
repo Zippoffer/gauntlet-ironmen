@@ -150,7 +150,7 @@ label {
 #output {
 	background-color: wheat;
 	border: 1px solid black;
-	height:340px;
+	height:330px;
 	/*width: 350px;*/
 	width: 60%;
 	left: 162px;
@@ -159,6 +159,8 @@ label {
 	box-shadow: inset 0 0 10px black;
 	overflow: scroll;
 	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 2%;
 }
 #staffFight {
 	position: relative;
@@ -223,11 +225,14 @@ label {
 	color: red;
 }
 .successPhrase {
-	color: green;
+	color: yellowgreen;
 }
 .attackPhrase {
 	font-weight: 900;
 }
 .damageCard {
+	background-color: #FDF2EE;
+	margin-bottom: 2%;
 	border: 1px solid black;
+	padding-left: 2%;
 }

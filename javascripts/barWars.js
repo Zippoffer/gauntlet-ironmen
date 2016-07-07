@@ -136,7 +136,7 @@ function patronBaseAttack(event) {
     staffClass.partyPoints -= totalDamage;
       if (staffClass.partyPoints < 1){
     	$("#staffFight").prop("disabled", true);
-    	$("#output").prepend(`<h3 class="victory">The ${patronClass.name} WINS!</h3>`);
+    	$("#output").prepend(`<h3 class="victory">The ${patronName} WINS!</h3>`);
     } else {
     	$("#staffFight").prop("disabled", false);
     }
@@ -201,7 +201,7 @@ function staffBaseAttack(event) {
     patronClass.partyPoints -= totalDamage;
     if (patronClass.partyPoints < 1){
     	$("#patronFight").prop("disabled", true);
-    	$("#output").prepend(`<h3 class="victory">The ${staffClass.name} WINS!</h3>`);
+    	$("#output").prepend(`<h3 class="victory">The ${staffName} WINS!</h3>`);
     } else {
     	$("#patronFight").prop("disabled", false);
     }

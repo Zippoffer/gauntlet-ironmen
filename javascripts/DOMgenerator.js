@@ -16,6 +16,9 @@ $(document).ready(function(){
 	
 	$("#patronFight").click(barWars.patronBaseAttack);
 	$("#staffFight").click(barWars.staffBaseAttack);
+
+	// $("#patronSpecial").click(barWars.patronSpecialAttack);
+	// $("#staffSpecial").click(barWars.staffSpecialAttack);
 	/////***DropDown Populating Functions***\\\\\
 	function populatePatronClasses(){
 		for(let i = 0; i < classes.patronClassArray.length; i++){

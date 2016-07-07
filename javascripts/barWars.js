@@ -29,46 +29,53 @@ var staffName = null;
 //running special attacks
 /////***Functions to get user input***\\\\\
 function identifyPatronClass(event) {
-  for (let i = 0; i < classes.patronClassArray.length; i++) {
-    let currentClass = classes.patronClassArray[i];
-    if ($("#patronClasses").val()[0] === currentClass.name) {
-        patronClass = currentClass;
-        console.log("Patron Class", patronClass);
+    for (let i = 0; i < classes.patronClassArray.length; i++) {
+        let currentClass = classes.patronClassArray[i];
+        if ($("#patronClasses").val()[0] === currentClass.name) {
+            patronClass = currentClass;
+            console.log("Patron Class", patronClass);
+        }
     }
-  }
-  patronName = patronClass.name.replace(/_/g, " ");
+    patronName = patronClass.name.replace(/_/g, " ");
 
+<<<<<<< HEAD
+    $("#patronClasses").prop("disabled", true);
+    $("#patronPointsLabel").text(`${patronName} Party Points: `);
+    $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
+    $("#staffClasses").prop("disabled", false);
+=======
   $("#patronClasses").prop("disabled", true);
 	$("#patronPointsLabel").text(`${patronName} Party Points: `);
   $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
   $("#staffClasses").prop("disabled", false);
+>>>>>>> 2c5fac945a773f5f92f00b9883f9f0b5eb056e0e
 }
 
 function identifyStaffClass(event) {
-  for (let i = 0; i < classes.staffClassArray.length; i++) {
-    let currentClass = classes.staffClassArray[i];
-    if ($("#staffClasses").val()[0] === currentClass.name) {
-        staffClass = currentClass;
-        console.log("Staff Class", staffClass);
+    for (let i = 0; i < classes.staffClassArray.length; i++) {
+        let currentClass = classes.staffClassArray[i];
+        if ($("#staffClasses").val()[0] === currentClass.name) {
+            staffClass = currentClass;
+            console.log("Staff Class", staffClass);
+        }
     }
-  }
-  staffName = staffClass.name.replace(/_/g, " ");
-  // console.log("staffName", staffName);
-  $("#staffClasses").prop("disabled", true);
-  $("#staffPointsLabel").text(`${staffName} Party Points: `);
-  $("#staffPointsSpan").text(staffClass.partyPoints); //print starting points to DOM
-  $("#patronAttacks").prop("disabled", false);
+    staffName = staffClass.name.replace(/_/g, " ");
+    // console.log("staffName", staffName);
+    $("#staffClasses").prop("disabled", true);
+    $("#staffPointsLabel").text(`${staffName} Party Points: `);
+    $("#staffPointsSpan").text(staffClass.partyPoints); //print starting points to DOM
+    $("#patronAttacks").prop("disabled", false);
 }
 
 function identifyPatronAttack(event) {
-  for (let i = 0; i < attacks.patronAttacksArray.length; i++) {
-    let currentAttack = attacks.patronAttacksArray[i];
-    if ($("#patronAttacks").val()[0] === currentAttack.name) {
-        patronAttack = currentAttack;
-        patronClass.attack = currentAttack;
+    for (let i = 0; i < attacks.patronAttacksArray.length; i++) {
+        let currentAttack = attacks.patronAttacksArray[i];
+        if ($("#patronAttacks").val()[0] === currentAttack.name) {
+            patronAttack = currentAttack;
+            patronClass.attack = currentAttack;
+        }
     }
-  }
-	$("#staffAttacks").prop("disabled", false);
+    $("#staffAttacks").prop("disabled", false);
 }
 
 function identifyStaffAttack(event) {
@@ -80,8 +87,8 @@ function identifyStaffAttack(event) {
             // console.log("Staff Attack", staffAttack);
         }
     }
-  $("#patronFight").prop("disabled", false);
-  $("#staffFight").prop("disabled", false);
+    $("#patronFight").prop("disabled", false);
+    $("#staffFight").prop("disabled", false);
 }
 /////***Attack Functions***\\\\\\
 
@@ -89,13 +96,13 @@ function patronBaseAttack(event) {
     $("#patronFight").prop("disabled", true);
     console.log("starting staff PP", staffClass.partyPoints);
     let attackValue = RNG.d20Random();
-    console.log("Patron attack roll", attackValue );
+    console.log("Patron attack roll", attackValue);
     let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
-    let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage); 
+    let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage);
     let totalDamage = 0;
 
     let patronAttackPhrase = patronClass.attack.attackPhrase.replace(/patronName/g, patronName);
-		patronAttackPhrase = patronAttackPhrase.replace(/staffName/g, staffName);
+    patronAttackPhrase = patronAttackPhrase.replace(/staffName/g, staffName);
     $("#output").prepend(`<div class="damageCard" id="turn__${totalTurns}__results"><p class="attackPhrase">${patronAttackPhrase}</p></div>`);
 
     if (patronAttack.opposingStat === "stress") { //if the opposing stat is stress then use this attack scenario
@@ -135,23 +142,23 @@ function patronBaseAttack(event) {
             }
         }
     }
-    if (totalDamage > 0 ){
-    	displayAttackSuccessMessage(patronClass, staffClass, totalDamage);
+    if (totalDamage > 0) {
+        displayAttackSuccessMessage(patronClass, staffClass, totalDamage);
     } else {
-    	displayAttackFailureMessage(patronClass, staffClass);
+        displayAttackFailureMessage(patronClass, staffClass);
     }
     totalTurns++;
     patronTurns++;
     staffClass.partyPoints -= totalDamage;
 
-		$("#staffPointsSpan").text(staffClass.partyPoints); //change points display #
+    $("#staffPointsSpan").text(staffClass.partyPoints); //change points display #
     checkPointsDisplay(staffClass.partyPoints); //update styling of points display
 
-    if (staffClass.partyPoints < 1){
-    	$("#staffFight").prop("disabled", true);
-    	$("#output").prepend(`<h3 class="victory">The ${patronName} WINS!</h3>`);
+    if (staffClass.partyPoints < 1) {
+        $("#staffFight").prop("disabled", true);
+        $("#output").prepend(`<h3 class="victory">The ${patronName} WINS!</h3>`);
     } else {
-    	$("#staffFight").prop("disabled", false);
+        $("#staffFight").prop("disabled", false);
     }
     // console.log("ending PP", staffClass.partyPoints);
     patronTurn = false; //changes to staff's turn
@@ -163,11 +170,11 @@ function staffBaseAttack(event) {
     let attackValue = RNG.d20Random();
     console.log("Staff attack roll", attackValue);
     let startingPartyPoints = patronClass.partyPoints; //to be used with the display function
-    let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage); 
+    let baseDamage = RNG.randomRange(patronAttack.minDamage, patronAttack.maxDamage);
     let totalDamage = 0;
 
     let staffAttackPhrase = staffClass.attack.attackPhrase.replace(/patronName/g, patronName);
-		staffAttackPhrase = staffAttackPhrase.replace(/staffName/g, staffName);
+    staffAttackPhrase = staffAttackPhrase.replace(/staffName/g, staffName);
     $("#output").prepend(`<div class="damageCard" id="turn__${totalTurns}__results"><p class="attackPhrase">${staffAttackPhrase}</p></div>`);
 
     if (staffAttack.opposingStat === "pleasure") { //if the opposing stat is pleasure then use this attack scenario
@@ -197,7 +204,7 @@ function staffBaseAttack(event) {
                     }
                 } else {
                     if (attackValue >= patronClass.sobriety + 8) {
-                        totalDamage = 3 * baseDamage ;
+                        totalDamage = 3 * baseDamage;
                     } else {
                         totalDamage = baseDamage;
                     }
@@ -205,23 +212,23 @@ function staffBaseAttack(event) {
             }
         }
     }
-    if(totalDamage > 0){
-    	displayAttackSuccessMessage(staffClass, patronClass, totalDamage);
+    if (totalDamage > 0) {
+        displayAttackSuccessMessage(staffClass, patronClass, totalDamage);
     } else {
-    	displayAttackFailureMessage(staffClass, patronClass);
+        displayAttackFailureMessage(staffClass, patronClass);
     }
     totalTurns++;
     staffTurns++;
     patronClass.partyPoints -= totalDamage;
 
-		$("#patronPointsSpan").text(patronClass.partyPoints); //change points display #
+    $("#patronPointsSpan").text(patronClass.partyPoints); //change points display #
     checkPointsDisplay(patronClass.partyPoints); //update styling of points display
 
-    if (patronClass.partyPoints < 1){
-    	$("#patronFight").prop("disabled", true);
-    	$("#output").prepend(`<h3 class="victory">The ${staffName} WINS!</h3>`);
+    if (patronClass.partyPoints < 1) {
+        $("#patronFight").prop("disabled", true);
+        $("#output").prepend(`<h3 class="victory">The ${staffName} WINS!</h3>`);
     } else {
-    	$("#patronFight").prop("disabled", false);
+        $("#patronFight").prop("disabled", false);
     }
     // console.log("ending PP", patronClass.partyPoints);
     patronTurn = true; //changes to patron's turn
@@ -230,50 +237,50 @@ function staffBaseAttack(event) {
 
 
 //helper function for updating the party points display
-function checkPointsDisplay (points) {
-	var $targetPoints = $("#patronPointsSpan");
-	if (patronTurn === true){
-		$targetPoints = $("#staffPointsSpan");
-	}
+function checkPointsDisplay(points) {
+    var $targetPoints = $("#patronPointsSpan");
+    if (patronTurn === true) {
+        $targetPoints = $("#staffPointsSpan");
+    }
 
-	if (points < 10) {
-		$targetPoints.removeClass("dying").addClass("almostDead"); //change class of div to display red(points < 50)
-	} else if (points < 25) {
-		$targetPoints.removeClass("hurting").addClass("dying"); //change class of div to display orange
-	} else if (points < 50) {
-		$targetPoints.removeClass("healthy").addClass("hurting"); //change class of div to display yellow
-	}
+    if (points < 10) {
+        $targetPoints.removeClass("dying").addClass("almostDead"); //change class of div to display red(points < 50)
+    } else if (points < 25) {
+        $targetPoints.removeClass("hurting").addClass("dying"); //change class of div to display orange
+    } else if (points < 50) {
+        $targetPoints.removeClass("healthy").addClass("hurting"); //change class of div to display yellow
+    }
 }
 
 
 
 //helper functions for displaying base attack messages 
 function displayAttackSuccessMessage(attackingClass, defendingClass, damage) {
-	if (attackingClass.patron === true){
-		let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/patronName/g, patronName);
-		attackerSuccessPhrase = attackerSuccessPhrase.replace(/staffName/g, staffName);
-		$(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
-		$(`#turn__${totalTurns}__results`).append(`<p> ${patronName} knocks off ${damage} Party Points from ${staffName}!</p>`);
-	} else {
-		let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/staffName/g, staffName);
-		attackerSuccessPhrase = attackerSuccessPhrase.replace(/patronName/g, patronName);
-		$(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
-		$(`#turn__${totalTurns}__results`).append(`<p> ${staffName} knocks off ${damage} Party Points from ${patronName}!</p>`);
-	}
+    if (attackingClass.patron === true) {
+        let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/patronName/g, patronName);
+        attackerSuccessPhrase = attackerSuccessPhrase.replace(/staffName/g, staffName);
+        $(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
+        $(`#turn__${totalTurns}__results`).append(`<p> ${patronName} knocks off ${damage} Party Points from ${staffName}!</p>`);
+    } else {
+        let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/staffName/g, staffName);
+        attackerSuccessPhrase = attackerSuccessPhrase.replace(/patronName/g, patronName);
+        $(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
+        $(`#turn__${totalTurns}__results`).append(`<p> ${staffName} knocks off ${damage} Party Points from ${patronName}!</p>`);
+    }
 }
 
 //this function is used if the staryingPartyPoints === xxx.partyPoints
 //after the function completes
 function displayAttackFailureMessage(attackingClass, defendingClass) {
-	if (attackingClass.patron === true){
-		let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/patronName/g, patronName);
-		attackerFailPhrase = attackerFailPhrase.replace(/staffName/g, staffName);
-		$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);
-	} else {
-		let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/staffName/g, staffName);
-		attackerFailPhrase = attackerFailPhrase.replace(/patronName/g, patronName);
-		$(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);	
-	}
+    if (attackingClass.patron === true) {
+        let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/patronName/g, patronName);
+        attackerFailPhrase = attackerFailPhrase.replace(/staffName/g, staffName);
+        $(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);
+    } else {
+        let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/staffName/g, staffName);
+        attackerFailPhrase = attackerFailPhrase.replace(/patronName/g, patronName);
+        $(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);
+    }
 }
 
 /////***Exports for Browserify***\\\\\

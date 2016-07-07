@@ -14,8 +14,8 @@ function PitcherOfBeer(){
 	this.favoriteClassBonus = 1;
 	this.opposingStat = "stress";
 	this.attackPhrase = `patronName chugs a pitcher of PBR, and belches in the face of staffName.`;
-	// this.successPhrase = `${staffName} is staggered by the stench and twists an ankle!`;
-	// this.failPhrase = `But ${staffName} just had a breathmint and is unaffected by the burp!`;
+	this.successPhrase = `staffName is staggered by the stench and twists an ankle!`;
+	this.failPhrase = `But staffName just had a breathmint and is unaffected by the burp!`;
 }
 PitcherOfBeer.prototype = new Attack(3, 3);
 
@@ -25,6 +25,9 @@ function RoundOfShots(){
   this.favoriteClass = "Bachelorette";
   this.favoriteClassBonus = 2;
   this.opposingStat = "stress";
+  this.attackPhrase = `patronName orders a round of Fireball shots for the entire bar.`;
+  this.successPhrase = `staffName has to run to the store to get more Fireball, and gets a speeding ticket.`;
+  this.failPhrase = `patronName coughs the spicy liquor up, and staffName laughs in patronName's face!`;
 }
 RoundOfShots.prototype = new Attack(2, 4);
 
@@ -34,6 +37,9 @@ function Flask(){
   this.favoriteClass = "Underage";
   this.favoriteClassBonus = 3;
   this.opposingStat = "money";
+  this.attackPhrase = `patronName orders a soda, but pulls out a hidden flask of whiskey to liven things up (on the cheap).`;
+  this.successPhrase = `staffName's stock in whiskey drops and is forced to move in with parents.`;
+  this.failPhrase = `staffName sees the flask, and knocks it out of patronName's hand. `;
 }
 Flask.prototype = new Attack(3, 3);
 

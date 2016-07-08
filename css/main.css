@@ -239,7 +239,8 @@ label {
 	width: 200px;
 	height: 20px;
 	border: 1px solid black;
-	background-color: white;
+/*	background-color: white;
+*/	text-align: center;
 }
 #staffPoints {
 	position: relative;
@@ -248,8 +249,8 @@ label {
 	width: 200px;
 	height: 20px;
 	border: 1px solid black;
-	background-color: white;
-
+/*	background-color: white;
+*/	text-align: center;
 }
 .failPhrase {
 	color: red;
@@ -267,19 +268,32 @@ label {
 	padding-left: 2%;
 }
 
-.healthy {
+div.healthy {
+	background-color: wheat;
+}
+div.hurting {
+	background-color: yellow;
+}
+div.dying {
+	background: orange;
+}
+div.almostDead {
+	background: red;
+}
+
+span.healthy {
 	color: green;
 }
-.hurting {
-	background: yellow;
+span.hurting {
+	/*background: yellow;*/
 	color: black;
 }
-.dying {
-	background: orange;
+span.dying {
+	/*background: orange;*/
 	color: black;
 }
-.almostDead {
-	background: red;
+span.almostDead {
+/*	background: red;*/
 	color: white;
 }
 

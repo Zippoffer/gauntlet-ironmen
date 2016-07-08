@@ -230,17 +230,22 @@ function staffBaseAttack(event) {
 
 //helper function for updating the party points display
 function checkPointsDisplay(points) {
-    var $targetPoints = $("#patronPointsSpan");
+    var $targetPointsSpan = $("#patronPointsSpan");
+    var $targetPointsDiv = $("#patronPoints");
     if (patronTurn === true) {
-        $targetPoints = $("#staffPointsSpan");
+        $targetPointsSpan = $("#staffPointsSpan");
+        $targetPointsDiv = $("#staffPoints");
     }
 
     if (points < 10) {
-        $targetPoints.removeClass("dying").addClass("almostDead"); //change class of div to display red(points < 50)
+        $targetPointsSpan.removeClass("dying").addClass("almostDead"); //change class of div to display red(points < 50)
+        $targetPointsDiv.removeClass("dying").addClass("almostDead");
     } else if (points < 25) {
-        $targetPoints.removeClass("hurting").addClass("dying"); //change class of div to display orange
+        $targetPointsSpan.removeClass("hurting").addClass("dying"); //change class of div to display orange
+        $targetPointsDiv.removeClass("hurting").addClass("dying");
     } else if (points < 50) {
-        $targetPoints.removeClass("healthy").addClass("hurting"); //change class of div to display yellow
+        $targetPointsSpan.removeClass("healthy").addClass("hurting"); //change class of div to display yellow
+        $targetPointsDiv.removeClass("healthy").addClass("hurting");
     }
 }
 

@@ -1,3 +1,15 @@
+.selectedPatron {
+	height: 50px;
+	display: inline;
+	position: absolute;
+}
+
+.selectedStaff {
+	height: 50px;
+	margin-left: 295px;
+	display: inline;
+	position: absolute;
+}
 
 .patronImage {
 	float: right;

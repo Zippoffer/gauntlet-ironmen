@@ -41,6 +41,8 @@ function identifyPatronClass(event) {
     $("#patronPointsBar").width(patronClass.partyPoints + '%'); //change width of points bar to points value
     $("#patronBarLabel").text(`${patronName}: ${patronClass.partyPoints}`); //put points starting value in bar
     $("#staffClasses").prop("disabled", false);
+
+    $(".inner").prepend(`<img class="selectedPatron" src="${patronClass.image}">`);
 }
 
 function identifyStaffClass(event) {
@@ -56,6 +58,10 @@ function identifyStaffClass(event) {
     $("#staffPointsBar").width(staffClass.partyPoints + '%'); //change width of points bar to points value
     $("#staffBarLabel").text(`${staffName}: ${staffClass.partyPoints}`); //put points starting value in bar
     $("#patronAttacks").prop("disabled", false);
+
+
+
+    $(".inner").prepend(`<img class="selectedStaff" src="${staffClass.image}">`);
 }
 
 function identifyPatronAttack(event) {

@@ -270,6 +270,19 @@ span.dead {
 	color: red;
 }
 
+<<<<<<< HEAD
+#mouseOverWeaponPopUp {
+	float: left;
+	position: absolute;
+	display: inline-block;
+}
+.popUp {
+	background-color: wheat;
+	/*border: 1px solid black;*/
+	height:350px;
+	width: 95%;
+}
+=======
 #patronBarHolder {
     position: relative;
     width: 100%;
@@ -304,3 +317,4 @@ span.dead {
 
 
 
+>>>>>>> 9ae4907f68805b13e3f03a79c13e7a6430190de2

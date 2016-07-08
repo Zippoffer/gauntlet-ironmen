@@ -38,10 +38,10 @@ function identifyPatronClass(event) {
     }
     patronName = patronClass.name.replace(/_/g, " ");
     $("#patronClasses").prop("disabled", true);
-    $("#patronPointsLabel").text(`${patronName} Party Points: `);
-    $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
-    $("#patronPointsBar").width(patronClass.partyPoints + '%');
-    $("#patronBarLabel").text(`${patronName} Party Points: ${patronClass.partyPoints}`);
+    // $("#patronPointsLabel").text(`${patronName} Party Points: `);
+    // $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
+    $("#patronPointsBar").width(patronClass.partyPoints + '%'); //change width of points bar to points value
+    $("#patronBarLabel").text(`${patronName} Party Points: ${patronClass.partyPoints}`); //put points starting value in bar
     $("#staffClasses").prop("disabled", false);
 }
 
@@ -58,6 +58,8 @@ function identifyStaffClass(event) {
     $("#staffClasses").prop("disabled", true);
     $("#staffPointsLabel").text(`${staffName} Party Points: `);
     $("#staffPointsSpan").text(staffClass.partyPoints); //print starting points to DOM
+    // $("#staffPointsBar").width(staffClass.partyPoints + '%'); //change width of points bar to points value
+    // $("#staffBarLabel").text(`${patronName} Party Points: ${patronClass.partyPoints}`); //put points starting value in bar
     $("#patronAttacks").prop("disabled", false);
 }
 
@@ -149,6 +151,8 @@ function patronBaseAttack(event) {
     }
 
     $("#staffPointsSpan").text(staffClass.partyPoints); //change points display #
+    // $("#staffPointsBar").width(patronClass.partyPoints + '%'); //change points bar length
+    // $("#staffBarLabel").text(patronClass.partyPoints); //change points in bar
     checkPointsDisplay(staffClass.partyPoints); //update styling of points display
 
     if (staffClass.partyPoints < 1) {
@@ -221,11 +225,9 @@ function staffBaseAttack(event) {
     if (patronClass.partyPoints < 1) { //prevent negative party points
     	patronClass.partyPoints = 0;
     }
-    $("#patronPointsSpan").text(patronClass.partyPoints); //change points display #
-    $("#patronPointsBar").width(patronClass.partyPoints + '%');
-    $("#patronBarLabel").text(patronClass.partyPoints);
-
-
+    // $("#patronPointsSpan").text(patronClass.partyPoints); //change points display #
+    $("#patronPointsBar").width(patronClass.partyPoints + '%'); //change points bar length
+    $("#patronBarLabel").text(patronClass.partyPoints); //change points in bar
     checkPointsDisplay(patronClass.partyPoints); //update styling of points display
 
     if (patronClass.partyPoints < 1) {
@@ -247,9 +249,10 @@ function checkPointsDisplay(points) {
     var $targetPointsBar = $("#patronPointsBar");
     var $targetPointsLabel = $("#patronBarLabel");
     if (patronTurn === true) {
-        $targetPointsSpan = $("#staffPointsSpan");
-        $targetPointsDiv = $("#staffPoints");
-
+      $targetPointsSpan = $("#staffPointsSpan");
+      $targetPointsDiv = $("#staffPoints");
+      $targetPointsBar = $("#staffPointsBar");
+      $targetPointsLabel = $("#staffBarLabel");
     }
 
     if (points === 0){

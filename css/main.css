@@ -326,7 +326,25 @@ span.dead {
     height: 100%;
 }
 #patronBarLabel {
-	text-align: center; /* If you want to center it */
-  line-height: 17px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+	text-align: center; 
+  line-height: 17px;
 }
+
+/*#staffBarHolder {
+    position: relative;
+    width: 100%;
+    height: 17px;
+    background-color: wheat;
+}
+#staffPointsBar {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+}
+#staffBarLabel {
+	text-align: center; 
+  line-height: 17px;
+}*/
+
+
 

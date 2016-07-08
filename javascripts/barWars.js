@@ -38,10 +38,9 @@ function identifyPatronClass(event) {
     }
     patronName = patronClass.name.replace(/_/g, " ");
     $("#patronClasses").prop("disabled", true);
-    // $("#patronPointsLabel").text(`${patronName} Party Points: `);
-    // $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
+
     $("#patronPointsBar").width(patronClass.partyPoints + '%'); //change width of points bar to points value
-    $("#patronBarLabel").text(`${patronName} Party Points: ${patronClass.partyPoints}`); //put points starting value in bar
+    $("#patronBarLabel").text(`${patronName}: ${patronClass.partyPoints}`); //put points starting value in bar
     $("#staffClasses").prop("disabled", false);
 }
 
@@ -54,12 +53,10 @@ function identifyStaffClass(event) {
         }
     }
     staffName = staffClass.name.replace(/_/g, " ");
-    // console.log("staffName", staffName);
     $("#staffClasses").prop("disabled", true);
-    $("#staffPointsLabel").text(`${staffName} Party Points: `);
-    $("#staffPointsSpan").text(staffClass.partyPoints); //print starting points to DOM
-    // $("#staffPointsBar").width(staffClass.partyPoints + '%'); //change width of points bar to points value
-    // $("#staffBarLabel").text(`${patronName} Party Points: ${patronClass.partyPoints}`); //put points starting value in bar
+
+    $("#staffPointsBar").width(staffClass.partyPoints + '%'); //change width of points bar to points value
+    $("#staffBarLabel").text(`${staffName}: ${staffClass.partyPoints}`); //put points starting value in bar
     $("#patronAttacks").prop("disabled", false);
 }
 
@@ -80,7 +77,6 @@ function identifyStaffAttack(event) {
         if ($("#staffAttacks").val()[0] === currentAttack.name) {
             staffAttack = currentAttack;
             staffClass.attack = currentAttack;
-            // console.log("Staff Attack", staffAttack);
         }
     }
     $("#patronFight").prop("disabled", false);
@@ -150,9 +146,8 @@ function patronBaseAttack(event) {
     	staffClass.partyPoints = 0;
     }
 
-    $("#staffPointsSpan").text(staffClass.partyPoints); //change points display #
-    // $("#staffPointsBar").width(patronClass.partyPoints + '%'); //change points bar length
-    // $("#staffBarLabel").text(patronClass.partyPoints); //change points in bar
+    $("#staffPointsBar").width(staffClass.partyPoints + '%'); //change points bar length
+    $("#staffBarLabel").text(staffClass.partyPoints); //change points in bar
     checkPointsDisplay(staffClass.partyPoints); //update styling of points display
 
     if (staffClass.partyPoints < 1) {
@@ -161,7 +156,6 @@ function patronBaseAttack(event) {
     } else {
         $("#staffFight").prop("disabled", false);
     }
-    // console.log("ending PP", staffClass.partyPoints);
     patronTurn = false; //changes to staff's turn
 }
 
@@ -225,7 +219,6 @@ function staffBaseAttack(event) {
     if (patronClass.partyPoints < 1) { //prevent negative party points
     	patronClass.partyPoints = 0;
     }
-    // $("#patronPointsSpan").text(patronClass.partyPoints); //change points display #
     $("#patronPointsBar").width(patronClass.partyPoints + '%'); //change points bar length
     $("#patronBarLabel").text(patronClass.partyPoints); //change points in bar
     checkPointsDisplay(patronClass.partyPoints); //update styling of points display
@@ -236,7 +229,6 @@ function staffBaseAttack(event) {
     } else {
         $("#patronFight").prop("disabled", false);
     }
-    // console.log("ending PP", patronClass.partyPoints);
     patronTurn = true; //changes to patron's turn
 
 }
@@ -244,35 +236,23 @@ function staffBaseAttack(event) {
 
 //helper function for updating the party points display
 function checkPointsDisplay(points) {
-    var $targetPointsSpan = $("#patronPointsSpan");
-    var $targetPointsDiv = $("#patronPoints");
     var $targetPointsBar = $("#patronPointsBar");
     var $targetPointsLabel = $("#patronBarLabel");
     if (patronTurn === true) {
-      $targetPointsSpan = $("#staffPointsSpan");
-      $targetPointsDiv = $("#staffPoints");
       $targetPointsBar = $("#staffPointsBar");
       $targetPointsLabel = $("#staffBarLabel");
     }
 
     if (points === 0){
-        $targetPointsSpan.removeClass("almostDead").addClass("dead"); //change class of div to display red(points < 50)
-        $targetPointsDiv.removeClass("almostDead").addClass("dead");
         $targetPointsBar.removeClass("almostDead").addClass("dead");
         $targetPointsLabel.removeClass("almostDead").addClass("dead");
     } else if (points < 10) {
-        $targetPointsSpan.removeClass("dying").addClass("almostDead"); //change class of div to display red(points < 50)
-        $targetPointsDiv.removeClass("dying").addClass("almostDead");
         $targetPointsBar.removeClass("dying").addClass("almostDead");
         $targetPointsLabel.removeClass("dying").addClass("almostDead");
     } else if (points < 25) {
-        $targetPointsSpan.removeClass("hurting").addClass("dying"); //change class of div to display orange
-        $targetPointsDiv.removeClass("hurting").addClass("dying");
         $targetPointsBar.removeClass("hurting").addClass("dying");
         $targetPointsLabel.removeClass("hurting").addClass("dying");
     } else if (points < 50) {
-        $targetPointsSpan.removeClass("healthy").addClass("hurting"); //change class of div to display yellow
-        $targetPointsDiv.removeClass("healthy").addClass("hurting");
         $targetPointsBar.removeClass("healthy").addClass("hurting");
         $targetPointsLabel.removeClass("healthy").addClass("hurting");
     }

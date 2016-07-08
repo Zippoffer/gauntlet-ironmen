@@ -1,5 +1,17 @@
+.selectedPatron {
+	height: 50px;
+	display: inline;
+	position: absolute;
+}
 
-.playerImage {
+.selectedStaff {
+	height: 50px;
+	margin-left: 275px;
+	display: inline;
+	position: absolute;
+}
+
+.patronImage {
 	float: right;
 	display: inline;
 	margin-right: 20px;

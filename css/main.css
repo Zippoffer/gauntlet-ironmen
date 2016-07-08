@@ -254,8 +254,8 @@ label {
 	text-shadow: 0 2px 0 #aaa;
 }
 #staffPoints {
-	font-family: 'Press Start 2P', cursive;
-	/*font-family: bungee;*/
+	/*font-family: 'Press Start 2P', cursive;*/
+	font-family: bungee;
 	font-size: .75em;
 	position: absolute;
 	/*bottom: 5px;*/

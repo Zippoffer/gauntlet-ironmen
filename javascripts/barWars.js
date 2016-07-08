@@ -118,7 +118,6 @@ function patronBaseAttack(event) {
                 if (patronClass.name === patronAttack.favoriteClass) {
                     if (attackValue >= staffClass.money + 8) {
                         totalDamage = 3 * (baseDamage + patronAttack.favoriteClassBonus);
-                        displayAttackSuccessMessage(patronClass, staffClass, totalDamage);
                     } else {
                         totalDamage = baseDamage + patronAttack.favoriteClassBonus;
                     }

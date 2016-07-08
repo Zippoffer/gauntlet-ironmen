@@ -142,6 +142,9 @@ function patronBaseAttack(event) {
     totalTurns++;
     patronTurns++;
     staffClass.partyPoints -= totalDamage;
+    if (staffClass.partyPoints < 1) { //prevent negative party points
+    	staffClass.partyPoints = 0;
+    }
 
     $("#staffPointsSpan").text(staffClass.partyPoints); //change points display #
     checkPointsDisplay(staffClass.partyPoints); //update styling of points display
@@ -213,6 +216,9 @@ function staffBaseAttack(event) {
     staffTurns++;
     patronClass.partyPoints -= totalDamage;
 
+    if (patronClass.partyPoints < 1) { //prevent negative party points
+    	patronClass.partyPoints = 0;
+    }
     $("#patronPointsSpan").text(patronClass.partyPoints); //change points display #
     checkPointsDisplay(patronClass.partyPoints); //update styling of points display
 
@@ -237,7 +243,10 @@ function checkPointsDisplay(points) {
         $targetPointsDiv = $("#staffPoints");
     }
 
-    if (points < 10) {
+    if (points === 0){
+        $targetPointsSpan.removeClass("almostDead").addClass("dead"); //change class of div to display red(points < 50)
+        $targetPointsDiv.removeClass("almostDead").addClass("dead");
+    } else if (points < 10) {
         $targetPointsSpan.removeClass("dying").addClass("almostDead"); //change class of div to display red(points < 50)
         $targetPointsDiv.removeClass("dying").addClass("almostDead");
     } else if (points < 25) {

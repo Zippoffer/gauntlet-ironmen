@@ -55,7 +55,7 @@ $(document).ready(function() {
                         htmlHolder += (`<p class="selectStats">Sobriety Pts: ${currentMouseOver.sobriety}</p>`);
                         htmlHolder += (`<p class="selectStats">Max Health Pts: ${currentMouseOver.maxPoints}</p>`);
                         htmlHolder += (`<p class="selectStats">Min Health Pts: ${currentMouseOver.minPoints}</p>`);
-                        htmlHolder += (`<img class="playerImage" src="${currentMouseOver.image}">`);
+                        htmlHolder += (`<img class="patronImage" src="${currentMouseOver.image}">`);
                         htmlHolder = htmlHolder.replace(/_/g, " ");
                         $("#output").html(htmlHolder);
                     }

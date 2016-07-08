@@ -52,7 +52,7 @@ function Darts() {
     this.opposingStat = "money";
     this.attackPhrase = `patronName tries throwing darts after 8 beers and mistakes staffName's nose for a bullseye.`;
     this.successPhrase = `The errant dart misses staffName's nose, but penetrates the left eye instead.`;
-    this.failPhrase = `But staffName actually has a steel plate installed after a circus accident and the dart bounces off harmlessly.`;
+    this.failPhrase = `But staffName actually had a steel plate installed after a circus accident and the dart bounces off harmlessly.`;
 }
 Darts.prototype = new Attack(2, 4);
 
@@ -108,7 +108,7 @@ function TheTab() {
     this.opposingStat = "pleasure";
     this.attackPhrase = `staffName pulls out the tab and brandishes it in front of patronName`;
     this.successPhrase = `patronName's credit card is declined, and has no cash!`;
-    this.failPhrase = `patronName whips out their Black Card, and pays the bill happily!`;
+    this.failPhrase = `patronName whips out a Black Card, and pays the bill happily!`;
 }
 TheTab.prototype = new Attack(2, 4);
 

@@ -239,7 +239,7 @@ label {
 }
 
 div.healthy {
-	background-color: wheat;
+	background-color: green;
 }
 div.hurting {
 	background-color: yellow;
@@ -255,13 +255,13 @@ div.dead {
 }
 
 span.healthy {
-	color: green;
+	color: white;
 }
 span.hurting {
-	color: black;
+	color: red;
 }
 span.dying {
-	color: black;
+	color: white;
 }
 span.almostDead {
 	color: white;
@@ -269,5 +269,38 @@ span.almostDead {
 span.dead {
 	color: red;
 }
+
+#patronBarHolder {
+    position: relative;
+    width: 100%;
+    height: 17px;
+    background-color: wheat;
+}
+#patronPointsBar {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+}
+#patronBarLabel {
+	text-align: center; 
+  line-height: 17px;
+}
+
+#staffBarHolder {
+    position: relative;
+    width: 100%;
+    height: 17px;
+    background-color: wheat;
+}
+#staffPointsBar {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+}
+#staffBarLabel {
+	text-align: center; 
+  line-height: 17px;
+}
+
 
 

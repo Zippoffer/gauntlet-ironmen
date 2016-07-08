@@ -146,13 +146,8 @@
 	left: 83px;
 }
 .label {
-	/*background-image: url(cid:7C78785D-4474-41BC-B0CA-C7E3A7E1A551@nss.local);*/
-	/*font-family: bungee;*/
 	position: relative;
-	left: 8%;
-	right: auto;
-	/*text-align: center;*/
-	/*font-size: 2em;*/
+	left: 9%;
 	color: #FFC125;
 }
 #output {

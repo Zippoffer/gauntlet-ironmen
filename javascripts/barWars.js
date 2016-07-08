@@ -41,10 +41,6 @@ function identifyPatronClass(event) {
     $("#patronPointsBar").width(patronClass.partyPoints + '%'); //change width of points bar to points value
     $("#patronBarLabel").text(`${patronName}: ${patronClass.partyPoints}`); //put points starting value in bar
     $("#staffClasses").prop("disabled", false);
-
-
-    $(".inner").prepend("TESTING")
-    // $("inner").prepend(`<img class="selectedPatron" src="${patronClass.image}">`)
 }
 
 function identifyStaffClass(event) {

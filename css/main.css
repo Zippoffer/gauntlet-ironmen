@@ -165,6 +165,7 @@ body {
 	/*border: 1px solid black;*/
 }
 label {
+	/*font-family: 'Press Start 2P', cursive;*/
 	font-family: bungee;
 	/*padding-left: 2em;*/
 	position: relative;
@@ -178,6 +179,7 @@ label {
 	color: #FFC125;
 }
 #output {
+	/*visibility: hidden;*/
 	background-color: wheat;
 	border: 1px solid black;
 	height:360px;

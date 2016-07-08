@@ -33,7 +33,6 @@ function identifyPatronClass(event) {
         let currentClass = classes.patronClassArray[i];
         if ($("#patronClasses").val()[0] === currentClass.name) {
             patronClass = currentClass;
-            console.log("Patron Class", patronClass);
         }
     }
     patronName = patronClass.name.replace(/_/g, " ");
@@ -48,7 +47,6 @@ function identifyStaffClass(event) {
         let currentClass = classes.staffClassArray[i];
         if ($("#staffClasses").val()[0] === currentClass.name) {
             staffClass = currentClass;
-            console.log("Staff Class", staffClass);
         }
     }
     staffName = staffClass.name.replace(/_/g, " ");
@@ -76,7 +74,6 @@ function identifyStaffAttack(event) {
         if ($("#staffAttacks").val()[0] === currentAttack.name) {
             staffAttack = currentAttack;
             staffClass.attack = currentAttack;
-            // console.log("Staff Attack", staffAttack);
         }
     }
     $("#patronFight").prop("disabled", false);
@@ -228,7 +225,6 @@ function staffBaseAttack(event) {
     } else {
         $("#patronFight").prop("disabled", false);
     }
-    // console.log("ending PP", patronClass.partyPoints);
     patronTurn = true; //changes to patron's turn
 
 }
@@ -262,12 +258,12 @@ function checkPointsDisplay(points) {
 
 //helper functions for displaying base attack messages 
 function displayAttackSuccessMessage(attackingClass, defendingClass, damage) {
-    if (attackingClass.patron === true) {
+    if (attackingClass.patron === true) { //if the attacker is the patron do this
         let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/patronName/g, patronName);
         attackerSuccessPhrase = attackerSuccessPhrase.replace(/staffName/g, staffName);
         $(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
         $(`#turn__${totalTurns}__results`).append(`<p> ${patronName} knocks off ${damage} Party Points from ${staffName}!</p>`);
-    } else {
+    } else { //if the attacker is the staff do this
         let attackerSuccessPhrase = attackingClass.attack.successPhrase.replace(/staffName/g, staffName);
         attackerSuccessPhrase = attackerSuccessPhrase.replace(/patronName/g, patronName);
         $(`#turn__${totalTurns}__results`).append(`<p class="successPhrase">${attackerSuccessPhrase}</p>`);
@@ -278,11 +274,11 @@ function displayAttackSuccessMessage(attackingClass, defendingClass, damage) {
 //this function is used if the staryingPartyPoints === xxx.partyPoints
 //after the function completes
 function displayAttackFailureMessage(attackingClass, defendingClass) {
-    if (attackingClass.patron === true) {
+    if (attackingClass.patron === true) { //if the attacker is the patron do this
         let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/patronName/g, patronName);
         attackerFailPhrase = attackerFailPhrase.replace(/staffName/g, staffName);
         $(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);
-    } else {
+    } else { //if the attacker is the staff do this
         let attackerFailPhrase = attackingClass.attack.failPhrase.replace(/staffName/g, staffName);
         attackerFailPhrase = attackerFailPhrase.replace(/patronName/g, patronName);
         $(`#turn__${totalTurns}__results`).append(`<p class="failPhrase">${attackerFailPhrase}</p>`);

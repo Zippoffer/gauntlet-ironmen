@@ -28,7 +28,8 @@
 }
 
 .middle {
-	background-image: url(http://www.tomtaylormade.com/wp-content/uploads/2011/09/vertigosmall.jpg);
+	/*background-image: url(http://www.tomtaylormade.com/wp-content/uploads/2011/09/vertigosmall.jpg);*/
+	background-image: url(http://orig11.deviantart.net/5dcd/f/2010/111/6/8/annapolis_bar_fight_by_elandain.jpg);
 	background-size: 100% 200px;
 	background-position: no-repeat bottom;
 	background-color: lightgreen;
@@ -289,7 +290,7 @@ span.dead {
 .popUp {
 	background-color: wheat;
 	/*border: 1px solid black;*/
-	position: relative;
+	position: fixed;
 	height:358px;
 	width: 95%;
 	right: 12px;
@@ -303,7 +304,7 @@ span.dead {
     background-color: wheat;
 }
 #patronPointsBar {
-    position: absolute;
+    position: relative;
     width: 0%;
     height: 100%;
 }

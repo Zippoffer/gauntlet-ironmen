@@ -195,7 +195,7 @@ label {
 #staffFight {
 	position: relative;
 	top: 270px;
-	left: 180px;
+	left: 170px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -212,7 +212,9 @@ label {
 	font-weight: 900;
 	background-color: olive;
 }
+/***patronSpecial button is hidden until v2***/
 #patronSpecial {
+	visibility: hidden;
 	position: relative;
 	top: 340px;
 	right: 420px;
@@ -222,7 +224,9 @@ label {
 	font-weight: 900;
 	background-color: lightblue;
 }
+/***staffSpecial button is hidden until v2***/
 #staffSpecial {
+	visibility: hidden;
 	position: relative;
 	top: 280px;
 	left: 485px;
@@ -233,25 +237,52 @@ label {
 	background-color: lightblue;
 }
 #patronPoints {
+	font-family: bungee;
+	font-size: .75em;
 	position: absolute;
 	/*bottom: 5px;*/
 	top: 62px;
 	left: 149px;
-	width: 200px;
+	width: 250px;
 	height: 17px;
 	border: 1px solid black;
-	background-color: wheat;
+	/*background-color: wheat;*/
+	text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
 }
 #staffPoints {
+	font-family: bungee;
+	font-size: .75em;
 	position: absolute;
 	/*bottom: 5px;*/
 	top: 62px;
-	left: 457px;
-	width: 200px;
+	left: 407px;
+	width: 250px;
 	height: 17px;
 	border: 1px solid black;
-	background-color: wheat;
-
+	/*background-color: wheat;*/
+	text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
 }
 .failPhrase {
 	color: red;
@@ -283,18 +314,6 @@ label {
 .almostDead {
 	background: red;
 	color: white;
-}
-.p1:hover {
-	position: absolute;
-	/*bottom: -14px;*/
-	top: 42px;
-	left: 360px;
-}
-.p2:hover {
-	position: absolute;
-	/*bottom: -14px;*/
-	top: 42px;
-	left: 430px;
 }
 
 

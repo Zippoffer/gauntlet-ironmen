@@ -131,13 +131,14 @@
 	top: 170px;
 	left: 83px;
 }
-label {
-	font-family: bungee;
+.label {
+	/*background-image: url(cid:7C78785D-4474-41BC-B0CA-C7E3A7E1A551@nss.local);*/
+	/*font-family: bungee;*/
 	position: relative;
-	left: 12%;
+	left: 8%;
 	right: auto;
-	text-align: center;
-	font-size: 2em;
+	/*text-align: center;*/
+	/*font-size: 2em;*/
 	color: #FFC125;
 }
 #output {
@@ -156,8 +157,8 @@ label {
 }
 #staffFight {
 	position: relative;
-	top: 270px;
-	left: 170px;
+	top: 250px;
+	left: 470px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;
@@ -166,8 +167,8 @@ label {
 }
 #patronFight {
 	position: relative;
-	top: 270px;
-	right: 360px;
+	top: 300px;
+	right: 389px;
 	border-radius: 200px;
 	height: 60px;
 	width: 60px;

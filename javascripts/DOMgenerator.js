@@ -16,8 +16,21 @@ $(document).ready(function() {
     $("#staffAttacks").change(barWars.identifyStaffAttack);
 
     $("#patronFight").click(barWars.patronBaseAttack);
+    $(window).keydown(function(event){
+      if($("#patronFight").prop("disabled") !== true){
+        if(event.which === 49){
+         barWars.patronBaseAttack(event); 
+        }
+      }
+    });
     $("#staffFight").click(barWars.staffBaseAttack);
-
+     $(window).keydown(function(event){
+      if($("#staffFight").prop("disabled") !== true){
+        if(event.which === 50){
+         barWars.staffBaseAttack(event); 
+        }
+      }
+    });
     $("#patronFight").click(function() {
         gameHasStarted = true
     });

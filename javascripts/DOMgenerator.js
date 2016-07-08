@@ -25,16 +25,17 @@ $(document).ready(function(){
 	function populatePatronClasses(){
 
     let mouseIn = function() {
+      event.target.style.color = "#9FFF21";
       if (gameHasStarted === false) {
         for (var x in classes.patronClassArray) {
           if (classes.patronClassArray[x].name === this.id) {
             let currentMouseOver = classes.patronClassArray[x];
             let htmlHolder = "";
-           htmlHolder += (`<p>Name: ${currentMouseOver.name}</p>`);
-           htmlHolder += (`<p>Pleasure: ${currentMouseOver.pleasure}</p>`);
-           htmlHolder += (`<p>Sobriety: ${currentMouseOver.sobriety}</p>`);
-           htmlHolder += (`<p>Max Health Points: ${currentMouseOver.maxPoints}</p>`);
-           htmlHolder += (`<p>Min Health Points: ${currentMouseOver.minPoints}</p>`);
+           htmlHolder += (`<p class="selectStats selectStatsName">${currentMouseOver.name}</p>`);
+           htmlHolder += (`<p class="selectStats">Pleasure Pts: ${currentMouseOver.pleasure}</p>`);
+           htmlHolder += (`<p class="selectStats">Sobriety Pts: ${currentMouseOver.sobriety}</p>`);
+           htmlHolder += (`<p class="selectStats">Max Health Pts: ${currentMouseOver.maxPoints}</p>`);
+           htmlHolder += (`<p class="selectStats">Min Health Pts: ${currentMouseOver.minPoints}</p>`);
             htmlHolder = htmlHolder.replace(/_/g, " ");
             $("#output").html(htmlHolder);
           }
@@ -42,6 +43,7 @@ $(document).ready(function(){
       }
     }
     let mouseOut = function() {
+      event.target.style.color = "";
       if (gameHasStarted === false) {
        $("#output").html(" ");
       }
@@ -62,14 +64,17 @@ $(document).ready(function(){
 	function populatePatronAttacks(){
 
     let mouseIn = function() {
+      event.target.style.color = "#9FFF21";
       if (gameHasStarted === false) {
         for (var x in attacks.patronAttacksArray) {
           if (attacks.patronAttacksArray[x].name === this.id) {
             let currentMouseOver = attacks.patronAttacksArray[x];
             let htmlHolder = "";
-            htmlHolder += (`<p>Name: ${currentMouseOver.name}</p>`);
-            htmlHolder += (`<p>Favorite User: ${currentMouseOver.favoriteClass}</p>`);
-            htmlHolder += (`<p>Favorite User Bonus: ${currentMouseOver.favoriteClassBonus}</p>`);
+            htmlHolder += (`<p class="selectStats selectStatsName">${currentMouseOver.name}</p>`);
+            htmlHolder += (`<p class="selectStats">Min Chance of Damage: ${currentMouseOver.minDamage}</p>`);
+            htmlHolder += (`<p class="selectStats">Max Chance of Damage: ${currentMouseOver.maxDamage}</p>`);
+            htmlHolder += (`<p class="selectStats">Fav User: ${currentMouseOver.favoriteClass}</p>`);
+            htmlHolder += (`<p class="selectStats">Fav User Bonus Pts: ${currentMouseOver.favoriteClassBonus}</p>`);
             htmlHolder = htmlHolder.replace(/_/g, " ");
             $("#output").html(htmlHolder);
           }
@@ -77,6 +82,7 @@ $(document).ready(function(){
       }
     }
     let mouseOut = function() {
+      event.target.style.color = "";
       if (gameHasStarted === false) {
        $("#output").html(" ");
       }
@@ -97,16 +103,17 @@ $(document).ready(function(){
 	function populateStaffClasses() {
 
     let mouseIn = function() {
+      event.target.style.color = "#9FFF21";
       if (gameHasStarted === false) {
         for (var x in classes.staffClassArray) {
           if (classes.staffClassArray[x].name === this.id) {
             let currentMouseOver = classes.staffClassArray[x];
             let htmlHolder = "";
-            htmlHolder += (`<p>Name: ${currentMouseOver.name}</p>`);
-            htmlHolder += (`<p>Money: ${currentMouseOver.money}</p>`);
-            htmlHolder += (`<p>Stress Level: ${currentMouseOver.stress}</p>`);
-            htmlHolder += (`<p>Max Health Points: ${currentMouseOver.maxPoints}</p>`);
-            htmlHolder += (`<p>Min Health Points: ${currentMouseOver.minPoints}</p>`);
+            htmlHolder += (`<p class="selectStats selectStatsName selectStatsAlignRight">${currentMouseOver.name}</p>`);
+            htmlHolder += (`<p class="selectStats selectStatsAlignRight">Money: ${currentMouseOver.money}</p>`);
+            htmlHolder += (`<p class="selectStats selectStatsAlignRight">Stress Level: ${currentMouseOver.stress}</p>`);
+            htmlHolder += (`<p class="selectStats selectStatsAlignRight">Max Health Pts: ${currentMouseOver.maxPoints}</p>`);
+            htmlHolder += (`<p class="selectStats selectStatsAlignRight">Min Health Pts: ${currentMouseOver.minPoints}</p>`);
             htmlHolder = htmlHolder.replace(/_/g, " ");
             $("#output").html(htmlHolder);
           }
@@ -114,6 +121,7 @@ $(document).ready(function(){
       }
     }
     let mouseOut = function() {
+      event.target.style.color = "";
       if (gameHasStarted === false) {
        $("#output").html(" ");
      }
@@ -133,14 +141,17 @@ $(document).ready(function(){
 	function populateStaffAttacks() {
 
     let mouseIn = function() {
+      event.target.style.color = "#9FFF21";
       if (gameHasStarted === false) {
         for (var x in attacks.staffAttacksArray) {
           if (attacks.staffAttacksArray[x].name === this.id) {
             let currentMouseOver = attacks.staffAttacksArray[x];
             let htmlHolder = ""
-            htmlHolder += (`<p>Name: ${currentMouseOver.name}</p>`);
-            htmlHolder += (`<p>Favorite User: ${currentMouseOver.favoriteClass}</p>`);
-            htmlHolder += (`<p>Favorite User Bonus: ${currentMouseOver.favoriteClassBonus}</p>`);
+            htmlHolder += (`<p class="selectStats selectStatsName selectStatsAlignRight">${currentMouseOver.name}</p>`);
+            htmlHolder += (`<p  class="selectStats selectStatsAlignRight">Min Damage Pts: ${currentMouseOver.minDamage}</p>`);
+            htmlHolder += (`<p  class="selectStats selectStatsAlignRight">Max Damage Pts: ${currentMouseOver.maxDamage}</p>`);
+            htmlHolder += (`<p class="selectStats selectStatsAlignRight">Fav User: ${currentMouseOver.favoriteClass}</p>`);
+            htmlHolder += (`<p  class="selectStats selectStatsAlignRight">Fav User Bonus Pts: ${currentMouseOver.favoriteClassBonus}</p>`);
             htmlHolder = htmlHolder.replace(/_/g, " ");
             $("#output").html(htmlHolder);
           }
@@ -148,6 +159,7 @@ $(document).ready(function(){
       }
     }
     let mouseOut = function() {
+      event.target.style.color = "";
       if (gameHasStarted === false) {
       $("#output").html(" ");
       }

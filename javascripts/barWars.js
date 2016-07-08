@@ -78,7 +78,7 @@ function identifyStaffAttack(event) {
         }
     }
     $("#patronFight").prop("disabled", false);
-    $("#staffFight").prop("disabled", false);
+    // $("#staffFight").prop("disabled", false);
 }
 /////***Attack Functions***\\\\\\
 

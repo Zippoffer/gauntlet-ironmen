@@ -19,6 +19,7 @@ $(document).ready(function() {
     $(window).keydown(function(event){
       if($("#patronFight").prop("disabled") !== true){
         if(event.which === 49){
+         gameHasStarted = true;
          barWars.patronBaseAttack(event); 
         }
       }
@@ -27,15 +28,16 @@ $(document).ready(function() {
      $(window).keydown(function(event){
       if($("#staffFight").prop("disabled") !== true){
         if(event.which === 50){
+         gameHasStarted = true;
          barWars.staffBaseAttack(event); 
         }
       }
     });
     $("#patronFight").click(function() {
-        gameHasStarted = true
+        gameHasStarted = true;
     });
     $("#staffFight").click(function() {
-        gameHasStarted = true
+        gameHasStarted = true;
     });
 
     /////***DropDown Populating Functions***\\\\\

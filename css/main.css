@@ -270,4 +270,14 @@ span.dead {
 	color: red;
 }
 
-
+#mouseOverWeaponPopUp {
+	float: left;
+	position: absolute;
+	display: inline-block;
+}
+.popUp {
+	background-color: wheat;
+	/*border: 1px solid black;*/
+	height:350px;
+	width: 95%;
+}

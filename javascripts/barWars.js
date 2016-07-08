@@ -22,7 +22,7 @@ var staffTurns = 0; //total turns taken by staff
 var patronTurn = true;
 
 var patronName = null; //for using in phrases
-var staffName = null;
+var staffName = null; 
 
 ///////*****Functions*****\\\\\\\
 //need functions for:
@@ -35,8 +35,8 @@ function identifyPatronClass(event) {
             patronClass = currentClass;
         }
     }
-    patronName = patronClass.name.replace(/_/g, " ");
-    $("#patronClasses").prop("disabled", true);
+    patronName = patronClass.name.replace(/_/g, " "); //set patronName var.
+    $("#patronClasses").prop("disabled", true); 
     $("#patronPointsLabel").text(`${patronName} Party Points: `);
     $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
     $("#staffClasses").prop("disabled", false);

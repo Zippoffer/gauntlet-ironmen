@@ -37,6 +37,7 @@ function FratBoy() {
     this.name = "Frat_Boy";
     this.special = specials.funnelWingmanCall;
     this.attack = null;
+    this.image = "imgs/fratBoy.png"
 }
 FratBoy.prototype = new Patron(11, 8, 85, 100);
 
@@ -44,6 +45,7 @@ function Bachelorette() {
     this.name = "Bachelorette";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/bachelorette.png";
 }
 Bachelorette.prototype = new Patron(13, 10, 80, 85);
 
@@ -51,6 +53,7 @@ function Underage_Kid() {
     this.name = "Underage_Kid";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/underageKid.png"
 }
 Underage_Kid.prototype = new Patron(12, 14, 75, 85);
 
@@ -58,6 +61,7 @@ function Beer_Snob() {
     this.name = "Beer_Snob";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/beerSnob.png"
 }
 Beer_Snob.prototype = new Patron(10, 14, 80, 90);
 
@@ -65,6 +69,7 @@ function The_Regular() {
     this.name = "The_Regular";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/theRegular.png"
 }
 The_Regular.prototype = new Patron(11, 11, 70, 100);
 
@@ -81,6 +86,7 @@ function Bartender() {
     this.name = "Bartender";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/bartender.png"
 }
 Bartender.prototype = new Staff(10, 13, 80, 85);
 
@@ -88,6 +94,7 @@ function Bouncer() {
     this.name = "Bouncer";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/bouncer.png"
 }
 Bouncer.prototype = new Staff(10, 9, 90, 100);
 
@@ -95,6 +102,7 @@ function Waitress() {
     this.name = "Waitress";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/waitress.png"
 }
 Waitress.prototype = new Staff(12, 14, 75, 85);
 
@@ -102,6 +110,7 @@ function Cook() {
     this.name = "Cook";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/cook.png"
 }
 Cook.prototype = new Staff(10, 11, 80, 100);
 
@@ -109,6 +118,7 @@ function Manager() {
     this.name = "Manager";
     this.special = null;
     this.attack = null;
+    this.image = "imgs/manager.png"
 }
 Manager.prototype = new Staff(10, 12, 75, 90);
 

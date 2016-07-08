@@ -1,4 +1,18 @@
 
+.playerImage {
+	float: right;
+	display: inline;
+	margin-right: 20px;
+	margin-top: -195px;
+}
+
+.staffImage {
+	float: left;
+	display: inline;
+	margin-left: 20px;
+	margin-top: -195px;
+}
+
 .outer {
 	background-image: url(http://covermyfb.com/media/covers/07zUlMvNDOievNoW.jpg);
 	background-size: 100% 300px;
@@ -318,7 +332,5 @@ span.dead {
 	text-align: center; 
   line-height: 17px;
 }
-
-
 
 

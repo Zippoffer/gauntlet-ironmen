@@ -40,6 +40,8 @@ function identifyPatronClass(event) {
     $("#patronClasses").prop("disabled", true);
     $("#patronPointsLabel").text(`${patronName} Party Points: `);
     $("#patronPointsSpan").text(patronClass.partyPoints); //print starting points to DOM
+    $("#patronPointsBar").width(patronClass.partyPoints + '%');
+    $("#patronBarLabel").text(`${patronName} Party Points: ${patronClass.partyPoints}`);
     $("#staffClasses").prop("disabled", false);
 }
 
@@ -220,6 +222,10 @@ function staffBaseAttack(event) {
     	patronClass.partyPoints = 0;
     }
     $("#patronPointsSpan").text(patronClass.partyPoints); //change points display #
+    $("#patronPointsBar").width(patronClass.partyPoints + '%');
+    $("#patronBarLabel").text(patronClass.partyPoints);
+
+
     checkPointsDisplay(patronClass.partyPoints); //update styling of points display
 
     if (patronClass.partyPoints < 1) {
@@ -238,23 +244,34 @@ function staffBaseAttack(event) {
 function checkPointsDisplay(points) {
     var $targetPointsSpan = $("#patronPointsSpan");
     var $targetPointsDiv = $("#patronPoints");
+    var $targetPointsBar = $("#patronPointsBar");
+    var $targetPointsLabel = $("#patronBarLabel");
     if (patronTurn === true) {
         $targetPointsSpan = $("#staffPointsSpan");
         $targetPointsDiv = $("#staffPoints");
+
     }
 
     if (points === 0){
         $targetPointsSpan.removeClass("almostDead").addClass("dead"); //change class of div to display red(points < 50)
         $targetPointsDiv.removeClass("almostDead").addClass("dead");
+        $targetPointsBar.removeClass("almostDead").addClass("dead");
+        $targetPointsLabel.removeClass("almostDead").addClass("dead");
     } else if (points < 10) {
         $targetPointsSpan.removeClass("dying").addClass("almostDead"); //change class of div to display red(points < 50)
         $targetPointsDiv.removeClass("dying").addClass("almostDead");
+        $targetPointsBar.removeClass("dying").addClass("almostDead");
+        $targetPointsLabel.removeClass("dying").addClass("almostDead");
     } else if (points < 25) {
         $targetPointsSpan.removeClass("hurting").addClass("dying"); //change class of div to display orange
         $targetPointsDiv.removeClass("hurting").addClass("dying");
+        $targetPointsBar.removeClass("hurting").addClass("dying");
+        $targetPointsLabel.removeClass("hurting").addClass("dying");
     } else if (points < 50) {
         $targetPointsSpan.removeClass("healthy").addClass("hurting"); //change class of div to display yellow
         $targetPointsDiv.removeClass("healthy").addClass("hurting");
+        $targetPointsBar.removeClass("healthy").addClass("hurting");
+        $targetPointsLabel.removeClass("healthy").addClass("hurting");
     }
 }
 
